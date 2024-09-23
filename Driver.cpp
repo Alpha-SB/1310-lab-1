@@ -5,6 +5,8 @@
 	Purpose: 
 */
 
+// FOR THE LOVE OF GOD WORK PLEASE
+
 #include <iostream>
 #include <fstream> //used to read from and write to text files
 #include<string>
