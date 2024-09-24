@@ -9,8 +9,8 @@
 // one more time
 // one second more time
 
-#include <iostream>
-#include <fstream> //used to read from and write to text files
+#include<iostream>
+#include<fstream> //used to read from and write to text files
 #include<string>
 #include<iomanip>
 #include<cctype>
@@ -150,8 +150,6 @@ int damage(int attack)
     {   
         damage = attack * 1.25;
     }
-    
-    
     return damage;
 }
 int remaininghealth(int damage,int health)
@@ -162,7 +160,16 @@ int remaininghealth(int damage,int health)
 }
 
 int runGame(int startingPoint){
-    
+    //placeholder for now
+    string UserName;
+    int CharacterSelect;
+    cout << "\nName your character: ";
+    getline(cin,UserName);
+    cout << "\nWhat kind of character would you like to be?" << endl;
+    cout << "1: Tank, more HP less attack and slower" << endl;
+    cout << "2. Knight, balance of HP, attack, and speed" << endl;
+    cout << "3. glass cannon, less HP, more attack, much faster" << endl;
+
     switch (startingPoint){
         case 1:
 
