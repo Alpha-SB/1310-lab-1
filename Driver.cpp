@@ -134,6 +134,10 @@ class Interactions
         int damage(int);
         int remaninghealth(int,int);
         string log(int,int);
+        void savelogtofile(fstream,string);
+        /* during a fight add each cout of x did x damage to x and x has x hp left
+        to the string array battlelog then after the fight call a function that
+        is a for loop that prints every element of the array into a txt file. */
 };
 int damage(int attack)
 {   int damagemulti,damage;
