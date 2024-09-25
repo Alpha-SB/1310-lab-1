@@ -245,7 +245,7 @@ int main ()
     string fileName; // used to name and locate names of text files
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
-    int startingPoint; //printed into the save
+    int startingPoint = 1; //printed into the save
     string UserName;   //chosen name for the character
     int CharacterSelect;//type of character player selects
     
@@ -272,16 +272,14 @@ int main ()
                 for (int i = 0; i < fileName.length(); i++)  //replaces spaces with underscore
                     if (fileName[i] == ' ')
                         fileName[i] = '_';
-
-                //character selection   
                 
-                
+                //this is the character selection screen
                 cout << "\nName your character: ";
                 getline(cin,UserName);
                 cout << "\nWhat kind of character would you like to be?" << endl;
-                cout << "1: Tank, more HP less attack and slower" << endl;
-                cout << "2. Knight, balance of HP, attack, and speed" << endl;
-                cout << "3. glass cannon, less HP, more attack, much faster" << endl;
+                cout << "\t1: Tank, more HP less attack and slower" << endl;
+                cout << "\t2. Knight, balance of HP, attack, and speed" << endl;
+                cout << "\t3. glass cannon, less HP, more attack, much faster" << endl;
                 cin >> CharacterSelect;
 
                 switch (CharacterSelect){
@@ -294,26 +292,43 @@ int main ()
                         selectCharacter(UserName, 125, 75, 9);
                 }
 
-
+                //this section runs the actual game
                 do {
                     startingPoint = runGame(startingPoint);
                     if (startingPoint == 0)
                         break;
-                    //do you want to continue
-                    cout << "\nWould you like to continue?";
-                    cin >> choice;
-                    choice = getValidateInput();
-                    if (cont != 1 )
-                        break;  
-                }   while (cont);
-                if (cont != 1 )
+                    if (startingPoint == 7)
                         break;
+                    //do you want to continue
+                    cout << "\nWould you like to continue? Yes(1) or No (2)";
+                    cin >> choice;
+                    choice = getValidateInput(); 
+                }   while (choice == 1);
+                if (startingPoint == 0)
+                        break;
+                if (startingPoint == 7){
+                    cout << "Congrats you beat the game!! see you next time, " << UserName;
+                    
+                    outFile.open(fileName); 
+                    outFile << ""; // clears file , this may or may not work. I can fix it later -Gabe
+                    outFile.close();
+                    
+                    break;
+                }
                 outFile.open(fileName); //creates and opens new save text file
 
-                outFile << Character[0].name << "#" << Character[0].healthPoints << "#" << Character[0].attackStat << "#" << Character[0].speed << "#";
+                outFile << UserName << "#" << Character[0].healthPoints << "#" << Character[0].attackStat << "#" << Character[0].speed << "#" << Character.numItems << "#";
 
+                for (int i =0; i < Character.numItems;i++){
+                    outFile << Character.arrayOfitems[i];
+                    outFile << "#";
+                }
+                outFile << startingPoint << "#";
                 outFile.close();
                 break;
+
+
+
             case 2:
                 while (!inFile.is_open()){
                     cout << "Which save file would you like to open? (Ex. File_Name.txt)";
@@ -362,7 +377,7 @@ int main ()
 
     }while (choice == 4);
     
-    cout << "\nThanks for playing!\n";
+    cout << "\nThanks for playing...\n";
                 //maybe add ascii art here
 
     return 0;
