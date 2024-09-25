@@ -366,6 +366,13 @@ int main ()
                 //maybe add ascii art here
 
     return 0;
+
+
+
+    string **RoomN;
+    RoomN = new string*[5];
+    RoomN[1] = new string[5];
+    RoomN[1][5];
 }
 
 
