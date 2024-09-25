@@ -206,8 +206,8 @@ int main ()
     int choice = 0; //this number is used for user input choices
     bool cont = true; //determines if the program loops again
     string fileName; // used to name and locate names of text files
-    ifstream Myfile; // used to read from text files
-    ofstream MYfile; // used to write to text files
+    ifstream inFile; // used to read from text files
+    ofstream outFile; // used to write to text files
     int startingPoint; //printed into the save
     
     
@@ -235,7 +235,7 @@ int main ()
                     if (fileName[i] == ' ')
                         fileName[i] = '_';
 
-                Myfile.open(fileName); //creates and opens new save text file
+                inFile.open(fileName); //creates and opens new save text file
                 
 
                 //character selection
@@ -246,14 +246,14 @@ int main ()
 
                 //print starting point to save file
                 
-                Myfile.close();
+                inFile.close();
                 break;
             case 2:
-                while (!Myfile.is_open()){
+                while (!inFile.is_open()){
                     cout << "Which save file would you like to open? (Ex. File_Name.txt)";
                     cin >> fileName;
-                    Myfile.open(fileName);
-                    if (Myfile.is_open())
+                    inFile.open(fileName);
+                    if (inFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
                     choice = getValidateInput();
@@ -265,23 +265,26 @@ int main ()
                 
                 //print starting point to save file
 
-                Myfile.close();
+                inFile.close();
                 break;
             case 3:
-                while (!Myfile.is_open()){
+                while (!inFile.is_open()){
                     cout << "Which save file would you like to delete? (Ex. File_Name.txt)";
                     cin >> fileName;
-                    Myfile.open(fileName);
-                    if (Myfile.is_open())
+                    inFile.open(fileName);
+                    if (inFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
                     choice = getValidateInput();
                     if (choice != 1)
                         break;
                 }
-                //remove(Myfile); REMOVE FILE
+                if (!outFile.is_open())
+                    break;
                 
+                outFile << "";
                 
+                inFile.close();
                 break;
             default:
                 choice = 4;
@@ -292,7 +295,6 @@ int main ()
     cout << "\nThanks for playing!\n";
                 //maybe add ascii art here
 
-// testing testing 
     return 0;
 }
 
