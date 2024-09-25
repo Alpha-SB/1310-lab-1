@@ -91,7 +91,7 @@ class Character
 {
 
 	private: 
-        const int maxCharacters = 5;        
+                
         string name;
         double healthPoints;
         double attackStat;
@@ -136,36 +136,36 @@ class Character
         attackStat = as;
     }
 
-    int getSpeed() const
+    int Character::getSpeed() const
     {
         return speed;
     }
-    void setSpeed(int s)
+    void Character::setSpeed(int s)
     {
         speed = s;
     }
     //string Character::setName(string n);
     /*{
         name = n;
-    };//put in character.cpp*/
+    };//put Character:: in character.cpp*/
     
-    Character* selectCharacter(string name, double healthPoints, double attackStat, int speed);
+   // Character selectCharacter(string name, double healthPoints, double attackStat, int speed);
     void printCharacters(Character* selectCharacter);
    
 };
-    
-  Character* selectCharacter(string name, double healthPoints, double attackStat, int speed)
+   
+  /*Character  Character::selectCharacter(string name, double healthPoints, double attackStat, int speed)
     {
-        Character *selectCharacter = new Character;
+        
 
-        selectCharacter-> name = name;
+        Character-> name = name;
         selectCharacter-> healthPoints = healthPoints;
         selectCharacter-> attackStat = attackStat;
         selectCharacter-> speed = speed;
         
         
-    }
-    void printCharacters(Character* selectCharacter)
+    }*/
+    void Character::printCharacters(Character* selectCharacter)
     {
         cout << "Character Name:    " << selectCharacter->name << endl;
         cout << "Health Points:   " << selectCharacter->healthPoints << endl;
@@ -248,7 +248,10 @@ int main ()
     int startingPoint; //printed into the save
     string UserName;   //chosen name for the character
     int CharacterSelect;//type of character player selects
-    
+    Character **Player;
+    const int maxCharacters = 5;
+    Player = new Character*[maxCharacters];
+     
 
     //print ascii art of game title
         //this is filler game title art
@@ -287,11 +290,14 @@ int main ()
                 switch (CharacterSelect){
                     case 1:
                         //Character name and other data for each class in each case ;
-                        selectCharacter(UserName, 175, 25, 3);
+                        //selectCharacter(UserName, 175, 25, 3);
+                        Player[0] = new Character(UserName, 175, 25, 3); 
                     case 2:
-                        selectCharacter(UserName, 150, 50, 6);
+                        //selectCharacter(UserName, 150, 50, 6);
+                        Player[1] = new Character(UserName, 175, 50, 6);
                     case 3:
-                        selectCharacter(UserName, 125, 75, 9);
+                        //selectCharacter(UserName, 125, 75, 9);
+                        Player[2] = new Character(UserName, 125 , 75, 9);
                 }
 
 
