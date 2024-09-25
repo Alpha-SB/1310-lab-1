@@ -240,15 +240,12 @@ int runGame(int startingPoint)
 
 int main ()
 {
-    int choice = 0; //this number is used for user input choices
+    int choice = 0,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
     bool cont = true; //determines if the program loops again
-    string fileName; // used to name and locate names of text files
+    string fileName, UserName; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
-    int startingPoint = 1; //printed into the save
-    string UserName;   //chosen name for the character
-    int CharacterSelect;//type of character player selects
-    
+
 
     //print ascii art of game title
         //this is filler game title art
@@ -266,6 +263,9 @@ int main ()
         
         switch (choice){
             case 1:
+
+                choice = 1;
+
                 cout << "Name New Save File: (Ex. File_Name.txt)";
                 cin >> fileName;
 
@@ -330,6 +330,8 @@ int main ()
 
 
             case 2:
+                choice = 1;
+
                 while (!inFile.is_open()){
                     cout << "Which save file would you like to open? (Ex. File_Name.txt)";
                     cin >> fileName;
@@ -343,13 +345,47 @@ int main ()
                 }
                 if (choice != 1)
                         break;
-                startingPoint = runGame(startingPoint);
-                
-                //print starting point to save file
+
+                //this section runs the actual game, assuming it has been opened
+                do {
+                    startingPoint = runGame(startingPoint);
+                    if (startingPoint == 0)
+                        break;
+                    if (startingPoint == 7)
+                        break;
+                    //do you want to continue
+                    cout << "\nWould you like to continue? Yes(1) or No (2)";
+                    cin >> choice;
+                    choice = getValidateInput(); 
+                }   while (choice == 1);
+                if (startingPoint == 0)
+                        break;
+                if (startingPoint == 7){
+                    cout << "Congrats you beat the game!! see you next time, " << UserName;
+                    
+                    outFile.open(fileName); 
+                    outFile << ""; // clears file , this may or may not work. I can fix it later -Gabe
+                    outFile.close();
+                    
+                    break;
+                }
+                outFile.open(fileName); //creates and opens new save text file
+
+                outFile << UserName << "#" << Character[0].healthPoints << "#" << Character[0].attackStat << "#" << Character[0].speed << "#" << Character.numItems << "#";
+
+                for (int i =0; i < Character.numItems;i++){
+                    outFile << Character.arrayOfitems[i];
+                    outFile << "#";
+                }
+                outFile << startingPoint << "#";
+                outFile.close();
 
                 inFile.close();
                 break;
             case 3:
+
+                choice = 1;
+                
                 while (!outFile.is_open()){
                     cout << "Which save file would you like to delete? (Ex. File_Name.txt)";
                     cin >> fileName;
@@ -407,4 +443,3 @@ int getValidateInput(){
 		
 	return num;
 }
-
