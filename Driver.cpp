@@ -211,30 +211,12 @@ int remaininghealth(int damage,int health)
 }
 
 int runGame(int startingPoint)
-{   string UserName;
+{   
     switch(startingPoint)
     {
     case 1:
         //placeholder for now
         
-        int CharacterSelect;
-        cout << "\nName your character: ";
-        getline(cin,UserName);
-        cout << "\nWhat kind of character would you like to be?" << endl;
-        cout << "1: Tank, more HP less attack and slower" << endl;
-        cout << "2. Knight, balance of HP, attack, and speed" << endl;
-        cout << "3. glass cannon, less HP, more attack, much faster" << endl;
-        cin >> CharacterSelect;
-
-        switch (CharacterSelect){
-            case 1:
-                //Character name and other data for each class in each case ;
-                selectCharacter(UserName, 175, 25, 3);
-            case 2:
-                selectCharacter(UserName, 150, 50, 6);
-            case 3:
-                selectCharacter(UserName, 125, 75, 9);
-        }
         break;
     
     default:
@@ -254,7 +236,8 @@ int main ()
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
     int startingPoint; //printed into the save
-    
+    string UserName;   //chosen name for the character
+    int CharacterSelect;//type of character player selects
     
 
     //print ascii art of game title
@@ -282,8 +265,26 @@ int main ()
 
                 //character selection   
                 
-                //start game
                 
+                cout << "\nName your character: ";
+                getline(cin,UserName);
+                cout << "\nWhat kind of character would you like to be?" << endl;
+                cout << "1: Tank, more HP less attack and slower" << endl;
+                cout << "2. Knight, balance of HP, attack, and speed" << endl;
+                cout << "3. glass cannon, less HP, more attack, much faster" << endl;
+                cin >> CharacterSelect;
+
+                switch (CharacterSelect){
+                    case 1:
+                        //Character name and other data for each class in each case ;
+                        selectCharacter(UserName, 175, 25, 3);
+                    case 2:
+                        selectCharacter(UserName, 150, 50, 6);
+                    case 3:
+                        selectCharacter(UserName, 125, 75, 9);
+                }
+
+
                 do {
                     startingPoint = runGame(startingPoint);
                     if (startingPoint == 0)
@@ -291,8 +292,7 @@ int main ()
                     //do you want to continue
                     cout << "\nWould you like to continue?";
                     cin >> choice;
-                    //validate
-
+                    choice = getValidateInput();
                     if (cont != 1 )
                         break;  
                 }   while (cont);
