@@ -105,7 +105,11 @@ class Character
         name = n;
     };put in character.cpp
     */
-    Character* selectCharacter(string name, double healthPoints, double attackStat, int speed)
+    Character* selectCharacter(string name, double healthPoints, double attackStat, int speed);
+    void printCharacters(Character* selectCharacter);
+   
+};
+  Character* selectCharacter(string name, double healthPoints, double attackStat, int speed)
     {
         Character *selectCharacter = new Character;
 
@@ -113,7 +117,7 @@ class Character
         selectCharacter-> healthPoints = healthPoints;
         selectCharacter-> attackStat = attackStat;
         selectCharacter-> speed = speed;
-        selectCharacter-> arrayOfitems = new string[numItems];
+        
     }
     void printCharacters(Character* selectCharacter)
     {
@@ -122,8 +126,6 @@ class Character
         cout << "Hit Points:  " << selectCharacter->attackStat << endl;
         cout << "Speed :    " << selectCharacter->speed << endl;
     }
-};
-
 class Interactions
 {
 
@@ -182,6 +184,7 @@ int runGame(int startingPoint)
         switch (CharacterSelect){
             case 1:
                 //Character name and other data for each class in each case ;
+                selectCharacter(UserName, 175, 25, 3);
             case 2:
 
             case 3:
