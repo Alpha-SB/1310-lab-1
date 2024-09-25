@@ -173,16 +173,14 @@ int runGame(int startingPoint){
     cout << "1: Tank, more HP less attack and slower" << endl;
     cout << "2. Knight, balance of HP, attack, and speed" << endl;
     cout << "3. glass cannon, less HP, more attack, much faster" << endl;
+    cin >> CharacterSelect;
 
-    switch (startingPoint){
+    switch (CharacterSelect){
         case 1:
-
+            //Character name and other data for each class in each case ;
         case 2:
-
+            
         case 3:
-
-        case 4:
-
 
     }
 
