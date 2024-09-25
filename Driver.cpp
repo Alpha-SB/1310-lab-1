@@ -34,6 +34,8 @@ class Forest
         int roomCleared;
 
     public:
+    Forest();
+    ~Forest();
     void showPaths();
     void choosePath(int choice);
     //constructor
@@ -91,6 +93,9 @@ class Character
         int numItems;
         
     public:
+    Character();
+    Character(string,double,double,int);
+    ~Character();
 
     Character(string n, double hp, double as, int s)
     {
@@ -172,6 +177,7 @@ class Interactions
         int damage, remaninghealth;
         string* battlelog;
     public:
+        Interactions();
         int damage(int);
         int remaninghealth(int,int);
         void fight(Character,Character);
@@ -244,6 +250,8 @@ int main ()
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
+    Character **PrintC;
+    PrintC = Player;
      
 
     //print ascii art of game title
@@ -288,10 +296,10 @@ int main ()
                         Player[0] = new Character(UserName, 175, 25, 3); 
                     case 2:
                         //selectCharacter(UserName, 150, 50, 6);
-                        Player[1] = new Character(UserName, 175, 50, 6);
+                        Player[0] = new Character(UserName, 175, 50, 6);
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
-                        Player[2] = new Character(UserName, 125 , 75, 9);
+                        Player[0] = new Character(UserName, 125 , 75, 9);
                 }
 
                 //this section runs the actual game
@@ -319,7 +327,7 @@ int main ()
                 }
                 outFile.open(fileName); //creates and opens new save text file
 
-                outFile << UserName << "#" << Character[0].healthPoints << "#" << Character[0].attackStat << "#" << Character[0].speed << "#" << Character.numItems << "#";
+                outFile << UserName << "#" << *(Player[0]) << "#" << Character[0].attackStat << "#" << Character[0].speed << "#" << Character.numItems << "#";
 
                 for (int i =0; i < Character.numItems;i++){
                     outFile << Character.arrayOfitems[i];
