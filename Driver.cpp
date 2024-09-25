@@ -280,18 +280,29 @@ int main ()
                     if (fileName[i] == ' ')
                         fileName[i] = '_';
 
-                inFile.open(fileName); //creates and opens new save text file
-                
-
-                //character selection
-                
+                //character selection   
                 
                 //start game
-                startingPoint = runGame(startingPoint);
-
-                //print starting point to save file
                 
-                inFile.close();
+                do {
+                    startingPoint = runGame(startingPoint);
+                    if (startingPoint == 0)
+                        break;
+                    //do you want to continue
+                    cout << "\nWould you like to continue?";
+                    cin >> choice;
+                    //validate
+
+                    if (cont != 1 )
+                        break;  
+                }   while (cont);
+                if (cont != 1 )
+                        break;
+                outFile.open(fileName); //creates and opens new save text file
+
+                outFile << Character[0].name << "#" << Character[0].healthPoints << "#" << Character[0].attackStat << "#" << Character[0].speed << "#";
+
+                outFile.close();
                 break;
             case 2:
                 while (!inFile.is_open()){
@@ -305,7 +316,8 @@ int main ()
                     if (choice != 1)
                         break;
                 }
-
+                if (choice != 1)
+                        break;
                 startingPoint = runGame(startingPoint);
                 
                 //print starting point to save file
@@ -313,11 +325,11 @@ int main ()
                 inFile.close();
                 break;
             case 3:
-                while (!inFile.is_open()){
+                while (!outFile.is_open()){
                     cout << "Which save file would you like to delete? (Ex. File_Name.txt)";
                     cin >> fileName;
                     inFile.open(fileName);
-                    if (inFile.is_open())
+                    if (outFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
                     choice = getValidateInput();
@@ -327,9 +339,12 @@ int main ()
                 if (!outFile.is_open())
                     break;
                 
-                outFile << "";
+                outFile << "";//this may or may not work. I can fix it later -Gabe
                 
-                inFile.close();
+                //Save file template: name#numHP#numAP#numSP#numitems#itemName#numlevel#
+                //Save file  example: Brandon Vandy#143#10#998#2#Brandons Shit sword#Brandons mid ass bow#7#
+
+                outFile.close();
                 break;
             default:
                 choice = 4;
