@@ -276,9 +276,12 @@ int main ()
                     if (choice != 1)
                         break;
                 }
-                //remove(Myfile); REMOVE FILE
+                if (!MYfile.is_open())
+                    break;
                 
+                fileName << "";
                 
+                MYfile.close();
                 break;
             default:
                 choice = 4;
@@ -289,7 +292,6 @@ int main ()
     cout << "\nThanks for playing!\n";
                 //maybe add ascii art here
 
-// testing testing 
     return 0;
 }
 
