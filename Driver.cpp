@@ -21,28 +21,31 @@ using namespace std;
 
 
 // hello 
-// foresr class
+
 class Forest 
 {
     private:
         
-        string paths [7];
-        const int numPaths = 7;
+        string path [8];
+        string room [7];
+        const int numPaths = 8;
+        const int numRooms = 7;
         int pathCleared;
+        int roomCleared;
 
     public:
     void showPaths();
     void choosePath(int choice);
     //constructor
-         Forest() : pathCleared(0) 
+         Forest() : roomCleared(0) 
          {
-            paths [0] = "";
-            paths [1] = "";
-            paths [2] = "";
-            paths [3] = "";
-            paths [4] = "";
-            paths [5] = "";
-            paths [6] = "";
+            room [0] = "Start";
+            room [1] = "";
+            room [2] = "";
+            room [3] = "Fight";
+            room [4] = "";
+            room [5] = "";
+            room [6] = "Boss Fight";
         }
 
     //destructor
@@ -53,22 +56,10 @@ class Forest
     void showPaths()
     {
         cout << "Choose a path:\n";
-        cout << "1: " << paths[0] << endl;
+        cout << "1: " << path [0] << endl;
         if (pathCleared == 1)
         {
             
-        }
-    }
-    
-    
-    
-    
-    void showPaths()
-    {
-        cout << "Choose a path:\n";
-        for (int i = 0; i < numPaths; i++)
-        {
-            cout << i + 1 << ": " << paths [i] << endl;
         }
     }
 
