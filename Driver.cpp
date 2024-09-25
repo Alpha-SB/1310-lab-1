@@ -163,27 +163,37 @@ int remaininghealth(int damage,int health)
     return HPleft;
 }
 
-int runGame(int startingPoint){
-    //placeholder for now
-    string UserName;
-    int CharacterSelect;
-    cout << "\nName your character: ";
-    getline(cin,UserName);
-    cout << "\nWhat kind of character would you like to be?" << endl;
-    cout << "1: Tank, more HP less attack and slower" << endl;
-    cout << "2. Knight, balance of HP, attack, and speed" << endl;
-    cout << "3. glass cannon, less HP, more attack, much faster" << endl;
-    cin >> CharacterSelect;
+int runGame(int startingPoint)
+{   string UserName;
+    switch(startingPoint)
+    {
+    case 1:
+        //placeholder for now
+        
+        int CharacterSelect;
+        cout << "\nName your character: ";
+        getline(cin,UserName);
+        cout << "\nWhat kind of character would you like to be?" << endl;
+        cout << "1: Tank, more HP less attack and slower" << endl;
+        cout << "2. Knight, balance of HP, attack, and speed" << endl;
+        cout << "3. glass cannon, less HP, more attack, much faster" << endl;
+        cin >> CharacterSelect;
 
-    switch (CharacterSelect){
-        case 1:
-            //Character name and other data for each class in each case ;
-        case 2:
-            
-        case 3:
+        switch (CharacterSelect){
+            case 1:
+                //Character name and other data for each class in each case ;
+            case 2:
 
+            case 3:
+
+        }
+        break;
+    
+    default:
+        break;
     }
-
+   
+    
     return startingPoint;
 }
 
