@@ -162,6 +162,8 @@ class Character
         selectCharacter-> healthPoints = healthPoints;
         selectCharacter-> attackStat = attackStat;
         selectCharacter-> speed = speed;
+
+        llllllllllllll
         
         
     }*/
