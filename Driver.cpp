@@ -90,7 +90,7 @@ class Character
 {
 
 	private: 
-        const int maxCharacters = 7;        
+        const int maxCharacters = 5;        
         string name;
         double healthPoints;
         double attackStat;
@@ -100,20 +100,37 @@ class Character
         
     public:
 
-    /*void Character::setName(string n)
+    Character(string n,double hp, double as, int s)
     {
         name = n;
-    };put in character.cpp
-    */
+        healthPoints = hp;
+        attackStat = as;
+        speed = s;
+    }
+    
+    string getName() const 
+    {
+        return name;
+    }
+    void setName(string n)
+    {
+        name = n;
+    }
+    //string Character::setName(string n);
+    /*{
+        name = n;
+    };//put in character.cpp*/
+    
     Character* selectCharacter(string name, double healthPoints, double attackStat, int speed);
     void printCharacters(Character* selectCharacter);
    
 };
-  Character* selectCharacter(string name, double healthPoints, double attackStat, int speed)
+    
+  Character* selectCharacter(string n, double healthPoints, double attackStat, int speed)
     {
         Character *selectCharacter = new Character;
 
-        selectCharacter-> name = name;
+        selectCharacter-> name = n;
         selectCharacter-> healthPoints = healthPoints;
         selectCharacter-> attackStat = attackStat;
         selectCharacter-> speed = speed;
@@ -186,9 +203,9 @@ int runGame(int startingPoint)
                 //Character name and other data for each class in each case ;
                 selectCharacter(UserName, 175, 25, 3);
             case 2:
-
+                selectCharacter(UserName, 125, 75, 5);
             case 3:
-
+                selectCharacter(UserName, 75, 125, 7);
         }
         break;
     
