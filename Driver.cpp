@@ -101,7 +101,7 @@ class Character
         
     public:
 
-    Character(string n,double hp, double as, int s)
+    Character(string n, double hp, double as, int s)
     {
         name = n;
         healthPoints = hp;
@@ -117,6 +117,33 @@ class Character
     {
         name = n;
     }
+
+    double getHealthPoints() const
+    {
+        return healthPoints;
+    }
+    void setHealthPoints(double hp)
+    {
+        healthPoints = hp;
+    }
+
+    double getAttackStat() const
+    {
+        return attackStat;
+    }
+    void setAttackStat(double as)
+    {
+        attackStat = as;
+    }
+
+    int getSpeed() const
+    {
+        return speed;
+    }
+    void setSpeed(int s)
+    {
+        speed = s;
+    }
     //string Character::setName(string n);
     /*{
         name = n;
@@ -127,11 +154,11 @@ class Character
    
 };
     
-  Character* selectCharacter(string n, double healthPoints, double attackStat, int speed)
+  Character* selectCharacter(string name, double healthPoints, double attackStat, int speed)
     {
         Character *selectCharacter = new Character;
 
-        selectCharacter-> name = n;
+        selectCharacter-> name = name;
         selectCharacter-> healthPoints = healthPoints;
         selectCharacter-> attackStat = attackStat;
         selectCharacter-> speed = speed;
@@ -204,9 +231,9 @@ int runGame(int startingPoint)
                 //Character name and other data for each class in each case ;
                 selectCharacter(UserName, 175, 25, 3);
             case 2:
-                selectCharacter(UserName, 125, 75, 5);
+                selectCharacter(UserName, 150, 50, 6);
             case 3:
-                selectCharacter(UserName, 75, 125, 7);
+                selectCharacter(UserName, 125, 75, 9);
         }
         break;
     
