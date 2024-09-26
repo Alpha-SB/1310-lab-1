@@ -250,13 +250,13 @@ int main ()
 {
     int choice = 0,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
     bool cont = true; //determines if the program loops again
-    string fileName, UserName; // used to name and locate names of text files and the users character name
+    string fileName, UserName, startingPointString; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
     int startingPoint; //printed into the save
     string UserName;   //chosen name for the character
     int CharacterSelect;//type of character player selects
-    string startingPointChar //char variable that is read in and turned into startingPoint int
+    
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
@@ -368,9 +368,9 @@ int main ()
                 //reads in the starting point from the end of the file, without reading in unneed data 
                 inFile.open(fileName);
                 inFile.seekg(-2, ifstream::end);//this looks bad, but I promise this is the most efficient way of getting the starting point
-                getline( inFile, startingPointChar, '#'); 
-                if (inFile.good)
-                    startingPoint =  stoi(startingPointChar);
+                getline( inFile, startingPointString, '#'); 
+                if (inFile.good())
+                    startingPoint =  stoi(startingPointString);
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
