@@ -256,6 +256,7 @@ int main ()
     int startingPoint; //printed into the save
     string UserName;   //chosen name for the character
     int CharacterSelect;//type of character player selects
+    string startingPointChar //char variable that is read in and turned into startingPoint int
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
@@ -364,6 +365,13 @@ int main ()
                 if (choice != 1)
                         break;
 
+                //reads in the starting point from the end of the file, without reading in unneed data 
+                inFile.open(fileName);
+                inFile.seekg(-2, ifstream::end);//this looks bad, but I promise this is the most efficient way of getting the starting point
+                getline( inFile, startingPointChar, '#'); 
+                if (inFile.good)
+                    startingPoint =  stoi(startingPointChar);
+                inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
                     startingPoint = runGame(startingPoint);
@@ -403,7 +411,7 @@ int main ()
             case 3:
 
                 choice = 1;
-                
+
                 while (!outFile.is_open()){
                     cout << "Which save file would you like to delete? (Ex. File_Name.txt)";
                     cin >> fileName;
