@@ -97,6 +97,13 @@ class Character
     Character(string,double,double,int);
     ~Character();
 
+    //overloaded operator from song.h example.
+    friend ostream &operator << (ostream &strm, Character &c)
+		{
+			strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#";
+			return strm;
+		}
+
     Character(string n, double hp, double as, int s)
     {
         name = n;
@@ -178,6 +185,8 @@ class Interactions
         string* battlelog;
     public:
         Interactions();
+        Interactions(int,int);
+        ~Interactions();
         int damage(int);
         int remaninghealth(int,int);
         void fight(Character,Character);
@@ -327,10 +336,9 @@ int main ()
                 }
                 outFile.open(fileName); //creates and opens new save text file
 
-                outFile << UserName << "#" << *(Player[0]) << "#" << Character[0].attackStat << "#" << Character[0].speed << "#" << Character.numItems << "#";
-
-                for (int i =0; i < Character.numItems;i++){
-                    outFile << Character.arrayOfitems[i];
+                outFile << *(Player[0]);
+                for (int i =0; i < /*numitems*/ 1;i++){
+                    outFile << *(Player[0]);//need a num items functions - sawyer 
                     outFile << "#";
                 }
                 outFile << startingPoint << "#";
@@ -381,10 +389,10 @@ int main ()
                 }
                 outFile.open(fileName); //creates and opens new save text file
 
-                outFile << UserName << "#" << Character[0].healthPoints << "#" << Character[0].attackStat << "#" << Character[0].speed << "#" << Character.numItems << "#";
+                outFile << *(Player[0]);
 
-                for (int i =0; i < Character.numItems;i++){
-                    outFile << Character.arrayOfitems[i];
+                for (int i =0; i < /*numitems*/1;i++){
+                    outFile << *(Player[0]);//need a num items functions - sawyer 
                     outFile << "#";
                 }
                 outFile << startingPoint << "#";
