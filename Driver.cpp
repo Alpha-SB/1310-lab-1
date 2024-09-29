@@ -400,7 +400,7 @@ int main ()
                 outFile << *(Player[0]);
 
                 for (int i =0; i < /*numitems*/1;i++){
-                    outFile << *(Player[0]);//need a num items functions - sawyer 
+                    outFile << 4 << "#" << *(Player[0]);//need a num items functions - sawyer 
                     outFile << "#";
                 }
                 outFile << startingPoint << "#";
