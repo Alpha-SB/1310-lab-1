@@ -1,6 +1,14 @@
-#include<Interactions.h>
+#include"Interactions.h"
 
-int damage(int attack)
+Interactions::Interactions(int d,int rh)
+{   
+    damage = d;
+    remaninghealth = rh;
+}
+
+
+
+int Interactions::damagedelt(int attack)
 {   int damagemulti,damage;
     damagemulti = (rand() % 3) + 1;
     if (damagemulti == 1)
@@ -17,15 +25,9 @@ int damage(int attack)
     }
     return damage;
 }
-int remaininghealth(int damage,int health)
+int Interactions::characterremaninghealth(int damage,int health)
 {   
     int HPleft;
     HPleft = health - damage;
     return HPleft;
-}
-void fight(Character[1],Character[2])
-{
-
-
-    
 }

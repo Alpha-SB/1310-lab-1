@@ -8,7 +8,7 @@
 #include<iomanip>
 #include<cctype>
 #include<climits>
-#include<Character.h>
+//#include<Character.h>
 using namespace std;
 
 class Interactions
@@ -21,9 +21,8 @@ class Interactions
         Interactions();
         Interactions(int,int);
         ~Interactions();
-        int damage(int);
-        int remaninghealth(int,int);
-        void fight(Character,Character);
+        int damagedelt(int);
+        int characterremaninghealth(int,int);
         string log(int,int);
         void savelogtofile(fstream,string);
         /* during a fight add each cout of x did x damage to x and x has x hp left

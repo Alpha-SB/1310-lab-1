@@ -189,7 +189,6 @@ class Interactions
         ~Interactions();
         int damage(int);
         int remaninghealth(int,int);
-        void fight(Character,Character);
         string log(int,int);
         void savelogtofile(fstream,string);
         /* during a fight add each cout of x did x damage to x and x has x hp left
