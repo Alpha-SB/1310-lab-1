@@ -133,8 +133,8 @@ class Character
 	private: 
                 
         string name;
-        double healthPoints;
-        double attackStat;
+        int healthPoints;
+        int attackStat;
         int speed;
         string* arrayOfitems;
         int numItems;
