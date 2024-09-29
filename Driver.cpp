@@ -141,7 +141,7 @@ class Character
         
     public:
     Character();
-    Character(string,double,double,int);
+    Character(string,int,int,int);
     ~Character();
 
     //overloaded operator from song.h example.
@@ -195,6 +195,22 @@ class Character
         speed = s;
     }
 
+    void setArrayOfItems0(string numItems, int i)
+    {   Character IP;
+        IP.arrayOfitems[0] = "computer of doom";    
+    }
+
+    void setArrayOfItems1(string numItems, int i)
+    {
+        Character IP;
+        IP.arrayOfitems[1] = "Chick-Fil-A Sandwhich";
+    }
+
+    void setArrayOfItems2(string numItems, int i)
+    {
+        Character IP;
+        IP.arrayOfitems[2] = "Coder's shoes";
+    }
     //string Character::setName(string n);
     /*{
         name = n;
@@ -448,7 +464,7 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = runGame(startingPoint);
+                    startingPoint = runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 7)
