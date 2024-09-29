@@ -151,7 +151,7 @@ class Character
 			return strm;
 		}
 
-    Character(string n, double hp, double as, int s)
+    Character(string n, int hp, int as, int s)
     {
         name = n;
         healthPoints = hp;
@@ -168,7 +168,7 @@ class Character
         name = n;
     }
 
-    double getHealthPoints() const
+    int getHealthPoints() const
     {
         return healthPoints;
     }
@@ -177,7 +177,7 @@ class Character
         healthPoints = hp;
     }
 
-    double getAttackStat() const
+    int getAttackStat() const
     {
         return attackStat;
     }
@@ -194,6 +194,7 @@ class Character
     {
         speed = s;
     }
+
     //string Character::setName(string n);
     /*{
         name = n;
@@ -285,30 +286,30 @@ void fight(Character[0],Character[])
 
 
 
-int runGame(int startingPoint, Character *Unit){
+int runGame(int startingPoint, Character Unit[]){
     
     switch (startingPoint)
     {
         case 1: 
-            room0(); 
+            
             break;
         case 2: 
-            room1(); 
+            Unit[1];
             break;
         case 3: 
-            room2(); 
+            
             break;
         case 4: 
-            room3(); 
+            Unit[2];
             break;
         case 5: 
-            room4(); 
+             
             break;
         case 6: 
-            room5(); 
+             Unit[3];
             break;
         case 7: 
-            room6(); 
+             Unit[4];
             break;
     }
 
@@ -379,9 +380,12 @@ int main ()
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
                         Player[0] = new Character(UserName, 125 , 75, 9);
-                }   Player[1] = new Character();
+                }   
 
-
+                Player[1] = new Character(" Private Joey", 75, 25, 6);
+                Player[2] = new Character("Commander John", 125, 50, 3);
+                Player[3] = new Character("General Wes", 100, 75, 5);
+                Player[4] = new Character("King Vandergriff", 150, 75, 5);
                 //this section runs the actual game
                 do {
                     startingPoint = runGame(startingPoint, *Player);
