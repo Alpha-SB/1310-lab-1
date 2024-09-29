@@ -157,7 +157,12 @@ class Character
     void printCharacters(Character* selectCharacter);
    
 };
-   
+
+Character setNumItems(string arrayOfitems[])
+{
+    int numItems = 3;
+     arrayOfitems = new string[numItems];
+}
   /*Character  Character::selectCharacter(string name, double healthPoints, double attackStat, int speed)
     {
         
