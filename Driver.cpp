@@ -15,6 +15,7 @@
 #include<iomanip>
 #include<cctype>
 #include<climits>
+#include"Interactions.h"
 
 using namespace std;
 
@@ -227,23 +228,35 @@ void fight(Character[1],Character[2])
 
 
 
-int runGame(int startingPoint)
-{   
-    switch(startingPoint)
+int runGame(int startingPoint){
+    
+    switch (startingPoint)
     {
-    case 1:
-        //placeholder for now
-        
-        break;
-    
-    default:
-        break;
+        case 1: 
+            room0(); 
+            break;
+        case 2: 
+            room1(); 
+            break;
+        case 3: 
+            room2(); 
+            break;
+        case 4: 
+            room3(); 
+            break;
+        case 5: 
+            room4(); 
+            break;
+        case 6: 
+            room5(); 
+            break;
+        case 7: 
+            room6(); 
+            break;
     }
-   
-    
-    return startingPoint;
-}
 
+    return startingPoint;
+    }
 
 int main ()
 {
