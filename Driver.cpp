@@ -6,7 +6,7 @@
 */
 
 // FOR THE LOVE OF GOD WORK PLEASE
-// one more time
+// one more time  jjjjjj
 // one second more time
 
 #include<iostream>
@@ -26,59 +26,105 @@ using namespace std;
 class Forest 
 {
     private:
-        
-        string path [8];
-        string room [7];
-        const int numPaths = 8;
-        const int numRooms = 7;
-        int pathCleared;
-        int roomCleared;
+        string rooms[7] = {"Start Room", "Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Fight Room"};
+        string currentRoom;
+        bool gameOver;
 
     public:
-    Forest();
-    ~Forest();
-    void showPaths();
-    void choosePath(int choice);
-    //constructor
-         Forest() : roomCleared(0) 
-         {
-            room [0] = "Start";
-            room [1] = "";
-            room [2] = "";
-            room [3] = "Fight";
-            room [4] = "";
-            room [5] = "";
-            room [6] = "Boss Fight";
-        }
+        Forest() : currentRoom("Start Room"), gameOver(false) {}  // Constructor to initialize game
 
-    //destructor
-         ~Forest()
-         {
-         }
-
-    void showPaths()
-    {
-        cout << "Choose a path:\n";
-        cout << "1: " << path [0] << endl;
-        if (pathCleared == 1)
+        void displayCurrentRoom() 
         {
-            
+            cout << "\nYou are currently in " << currentRoom << endl;
         }
-    }
 
-    void choosePath(int choice)
-    {
-        if (choice < 1 || choice > numPaths)
+        void startGame() 
         {
-            cout << "Invalid choice" << endl;
-            return;
+            while (!gameOver) 
+            {
+                if (currentRoom == "Start Room") 
+                {
+                    handleStartLine();
+                } 
+                else if (currentRoom == "Room 1" || currentRoom == "Room 2") 
+                {
+                    handleRoom1and2();
+                } 
+                else if (currentRoom == "Room 3") 
+                {
+                    handleRoom3();
+                } 
+                else if (currentRoom == "Room 4" || currentRoom == "Room 5") 
+                {
+                    handleRoom4and5();
+                } 
+                else if (currentRoom == "Fight Room") 
+                {
+                    handleFightRoom();
+                }
+            }
         }
-    }
-    
 
-            
+    private:
+        void handleStartLine() 
+        {
+            int input;
+        ask1:
+            displayCurrentRoom();
+            cout << "What would you like to do?" << endl;
+            cout << "1: to Go to Room 1" << endl;
+            cout << "2: to Go to Room 2" << endl;
+            cin >> input;
 
-    
+            if (input != 1 && input != 2) goto ask1;
+            currentRoom = rooms[input];
+        }
+
+        void handleRoom1and2() 
+        {
+            int input;
+        ask2:
+            displayCurrentRoom();
+            cout << "What would you like to do?" << endl;
+            cout << "3: to Go to Room 3" << endl;
+            cin >> input;
+
+            if (input != 3) goto ask2;
+            currentRoom = rooms[input];
+        }
+
+        void handleRoom3() 
+        {
+            int input;
+        ask3:
+            displayCurrentRoom();
+            cout << "What would you like to do?" << endl;
+            cout << "4 to Go to Room 4" << endl;
+            cout << "5 to Go to Room 5" << endl;
+            cin >> input;
+
+            if (input != 4 && input != 5) goto ask3;
+            currentRoom = rooms[input];
+        }
+
+        void handleRoom4and5() 
+        {
+            int input;
+        ask4:
+            displayCurrentRoom();
+            cout << "Enter 6 to go to the Boss Fight" << endl;
+            cin >> input;
+
+            if (input != 6) goto ask4;
+            currentRoom = "Fight Room";
+        }
+
+        void handleFightRoom() 
+        {
+            displayCurrentRoom();
+            cout << "You have reached the end of the game!" << endl;
+            gameOver = true;
+        }
 };
 
 class Character
@@ -224,9 +270,9 @@ int remaininghealth(int damage,int health)
     HPleft = health - damage;
     return HPleft;
 }
-void fight(Character[1],Character[2])
-{
-
+void fight(Character[0],Character[])
+{   int 
+    cout << 
 
     
 }
