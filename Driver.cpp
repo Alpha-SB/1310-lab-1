@@ -99,8 +99,8 @@ class Forest
         ask3:
             displayCurrentRoom();
             cout << "What would you like to do?" << endl;
-            cout << "4 to Go to Room 4" << endl;
-            cout << "5 to Go to Room 5" << endl;
+            cout << "4: to Go to Room 4" << endl;
+            cout << "5: to Go to Room 5" << endl;
             cin >> input;
 
             if (input != 4 && input != 5) goto ask3;
@@ -271,15 +271,21 @@ int remaininghealth(int damage,int health)
     return HPleft;
 }
 void fight(Character[0],Character[])
-{   int 
-    cout << 
+{   int char1speed, char2speed;
+    int char1attack, char2attack;
+    int char1hp, char2hp;
+    string char1name, char2name;
+
+    char1name = Character[0].getname();
+
+    cout << ;
 
     
 }
 
 
 
-int runGame(int startingPoint){
+int runGame(int startingPoint, Character *Unit){
     
     switch (startingPoint)
     {
@@ -373,11 +379,12 @@ int main ()
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
                         Player[0] = new Character(UserName, 125 , 75, 9);
-                }
+                }   Player[1] = new Character();
+
 
                 //this section runs the actual game
                 do {
-                    startingPoint = runGame(startingPoint);
+                    startingPoint = runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 7)
