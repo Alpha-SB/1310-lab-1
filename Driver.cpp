@@ -287,15 +287,18 @@ int remaininghealth(int damage,int health)
     HPleft = health - damage;
     return HPleft;
 }
-void fight(Character[0],Character[])
+void fight(Character Unit[])
 {   int char1speed, char2speed;
     int char1attack, char2attack;
     int char1hp, char2hp;
     string char1name, char2name;
-
-    char1name = Character[0].getname();
-
-    cout << ;
+    Character variable;
+    variable = Unit[0];
+    char1name = variable.getName();
+    variable.setAttackStat(150+10);
+    char1hp = variable.getHealthPoints();
+    variable.setHealthPoints(char1hp+10);
+    cout << "e";
 
     
 }
@@ -311,6 +314,7 @@ int runGame(int startingPoint, Character Unit[]){
             break;
         case 2: 
             Unit[1];
+            fight(Unit[0]);
             break;
         case 3: 
             
