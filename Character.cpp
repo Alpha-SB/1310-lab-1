@@ -1,6 +1,6 @@
 #include "Character.h"
 
-   Character(string n, int hp, int as, int s)
+   Character::Character(string n, int hp, int as, int s)
     {
         name = n;
         healthPoints = hp;
@@ -49,5 +49,19 @@
 		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#";
 		return strm;
 	}
+
+    Character setNumItems(string arrayOfitems[])
+    {
+    int numItems = 3;
+     arrayOfitems = new string[numItems];
+    }
+
+    void Character::printCharacters(Character* selectCharacter)
+    {
+        cout << "Character Name:    " << selectCharacter->name << endl;
+        cout << "Health Points:   " << selectCharacter->healthPoints << endl;
+        cout << "Hit Points:  " << selectCharacter->attackStat << endl;
+        cout << "Speed :    " << selectCharacter->speed << endl;
+    }
 
    

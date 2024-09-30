@@ -25,6 +25,8 @@ class Character
     int getSpeed() const;
     void setSpeed(int);
     friend ostream& operator<<(ostream& , Character&);
+    Character setNumItems(string);
+    void printCharacters(Character*);
 };
 
 #endif
