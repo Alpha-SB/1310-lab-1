@@ -15,50 +15,16 @@ class Character
     int numItems;
 
     public:
-     Character(string, int, int, int);
-
-      string getName() const 
-    {
-        return name;
-    }
-    void setName(string n)
-    {
-        name = n;
-    }
-
-    int getHealthPoints() const
-    {
-        return healthPoints;
-    }
-    void setHealthPoints(double hp)
-    {
-        healthPoints = hp;
-    }
-
-    int getAttackStat() const
-    {
-        return attackStat;
-    }
-    void setAttackStat(double as)
-    {
-        attackStat = as;
-    }
-
-    int Character::getSpeed() const
-    {
-        return speed;
-    }
-    void Character::setSpeed(int s)
-    {
-        speed = s;
-    }
-
-    friend ostream &operator << (ostream &strm, Character &c)
-	{
-		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#";
-		return strm;
-	}
-
+    Character(string, int, int, int);
+    string getName() const;
+    void setName(string);
+    int getHealthPoints() const;
+    void setHealthPoints(int);
+    int getAttackStat() const;
+    void setAttackStat(int);
+    int getSpeed() const;
+    void setSpeed(int);
+    friend ostream& operator<<(ostream& , Character&);
 };
 
 #endif
