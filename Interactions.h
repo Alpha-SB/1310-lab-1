@@ -23,7 +23,7 @@ class Interactions
         ~Interactions();
         int damagedelt(int);
         int characterremaninghealth(int,int);
-        string log(int,int);
+        string log(int,int,string,string);
         void savelogtofile(fstream,string);
         /* during a fight add each cout of x did x damage to x and x has x hp left
         to the string array battlelog then after the fight call a function that
