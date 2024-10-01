@@ -5,10 +5,6 @@
 	Purpose: 
 */
 
-// FOR THE LOVE OF GOD WORK PLEASE
-// one more time  jjjjjj
-// one second more time
-
 #include<iostream>
 #include<fstream> //used to read from and write to text files
 #include<string>
@@ -19,9 +15,6 @@
 
 using namespace std;
 
-
-
-// hello 
 
 class Forest 
 {
@@ -343,9 +336,6 @@ int main ()
     string fileName, UserName, startingPointString; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
-    int startingPoint; //printed into the save
-    string UserName;   //chosen name for the character
-    int CharacterSelect;//type of character player selects
     
     Character **Player;
     const int maxCharacters = 5;
@@ -354,13 +344,13 @@ int main ()
     PrintC = Player;
      
 
-    //print ascii art of game title
-        //this is filler game title art
-        cout << "   ___ _ _ _               ___                       _____ _ _   _\n";      
-        cout << "  / __(_| | | ___ _ __    / _ \\__ _ _ __ ___   ___  /__   (_| |_| | ___ \n";
-        cout << " / _\\ | | | |/ _ | '__|  / /_\\/ _` | '_ ` _ \\ / _ \\   / /\\| | __| |/ _ \\ \n";
-        cout << "/ /   | | | |  __| |    / /_\\| (_| | | | | | |  __/  / /  | | |_| |  __/ \n";
-        cout << "\\/    |_|_|_|\\___|_|    \\____/\\__,_|_| |_| |_|\\___|  \\/   |_|\\__|_|\\___|  \n";
+    //ascii art of game title
+    cout << " _______   __    __  .__   __.   _______  _______   ______   .__   __.      _______      ___      .___  ___.  _______ " << endl;
+    cout << "|       \\ |  |  |  | |  \\ |  |  /  _____||   ____| /  __  \\  |  \\ |  |     /  _____|    /   \\     |   \\/   | |   ____|" << endl;
+    cout << "|  .--.  ||  |  |  | |   \\|  | |  |  __  |  |__   |  |  |  | |   \\|  |    |  |  __     /  ^  \\    |  \\  /  | |  |__   " << endl;
+    cout << "|  |  |  ||  |  |  | |  . `  | |  | |_ | |   __|  |  |  |  | |  . `  |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
+    cout << "|  '--'  ||  `--'  | |  |\\   | |  |__| | |  |____ |  `--'  | |  |\\   |    |  |__| |  /  _____  \\  |  |  |  | |  |____ " << endl;
+    cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/  |__| \\__|     \\______| /__/     \\__\\ |__|  |__| |_______|" << endl;
                 
     do{
         
@@ -421,26 +411,26 @@ int main ()
                 if (startingPoint == 0)
                         break;
                 if (startingPoint == 7){
-                    cout << "Congrats you beat the game!! see you next time, " << UserName;
+                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
                     
                     outFile.open(fileName); 
-                    outFile << ""; // clears file , this may or may not work. I can fix it later -Gabe
+                    outFile << ""; // should clear file
                     outFile.close();
-                    
                     break;
                 }
-                outFile.open(fileName); //creates and opens new save text file
+                outFile.open(fileName, ios::app); //opens save text file
 
                 outFile << *(Player[0]);
+
                 for (int i =0; i < /*numitems*/ 1;i++){
                     outFile << *(Player[0]);//need a num items functions - sawyer 
                     outFile << "#";
                 }
                 outFile << startingPoint << "#";
                 outFile.close();
+
+                inFile.close();
                 break;
-
-
 
             case 2:
                 choice = 1;
@@ -481,20 +471,19 @@ int main ()
                 if (startingPoint == 0)
                         break;
                 if (startingPoint == 7){
-                    cout << "Congrats you beat the game!! see you next time, " << UserName;
+                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
                     
                     outFile.open(fileName); 
-                    outFile << ""; // clears file , this may or may not work. I can fix it later -Gabe
+                    outFile << ""; // should clear file
                     outFile.close();
-                    
                     break;
                 }
-                outFile.open(fileName); //creates and opens new save text file
+                outFile.open(fileName, ios::app); //opens save text file
 
                 outFile << *(Player[0]);
 
-                for (int i =0; i < /*numitems*/1;i++){
-                    outFile << 4 << "#" << *(Player[0]);//need a num items functions - sawyer 
+                for (int i =0; i < /*numitems*/ 1;i++){
+                    outFile << *(Player[0]);//need a num items functions - Sawyer 
                     outFile << "#";
                 }
                 outFile << startingPoint << "#";
@@ -502,14 +491,14 @@ int main ()
 
                 inFile.close();
                 break;
-            case 3:
 
+            case 3:
                 choice = 1;
 
                 while (!outFile.is_open()){
                     cout << "Which save file would you like to delete? (Ex. File_Name.txt)";
                     cin >> fileName;
-                    inFile.open(fileName);
+                    outFile.open(fileName);
                     if (outFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
@@ -534,7 +523,13 @@ int main ()
     }while (choice == 4);
     
     cout << "\nThanks for playing...\n";
-                //maybe add ascii art here
+    cout << " _______   __    __  .__   __.   _______  _______   ______   .__   __.      _______      ___      .___  ___.  _______ " << endl;
+    cout << "|       \\ |  |  |  | |  \\ |  |  /  _____||   ____| /  __  \\  |  \\ |  |     /  _____|    /   \\     |   \\/   | |   ____|" << endl;
+    cout << "|  .--.  ||  |  |  | |   \\|  | |  |  __  |  |__   |  |  |  | |   \\|  |    |  |  __     /  ^  \\    |  \\  /  | |  |__   " << endl;
+    cout << "|  |  |  ||  |  |  | |  . `  | |  | |_ | |   __|  |  |  |  | |  . `  |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
+    cout << "|  '--'  ||  `--'  | |  |\\   | |  |__| | |  |____ |  `--'  | |  |\\   |    |  |__| |  /  _____  \\  |  |  |  | |  |____ " << endl;
+    cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/  |__| \\__|     \\______| /__/     \\__\\ |__|  |__| |_______|" << endl;
+                
 
     return 0;
 
