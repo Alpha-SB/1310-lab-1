@@ -27,6 +27,7 @@ class Character
     friend ostream& operator<<(ostream& , Character&);
     Character setNumItems(string);
     void printCharacters(Character*);
+    void setArrayOfItems0(string, int);
 };
 
 #endif

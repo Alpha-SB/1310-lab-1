@@ -64,4 +64,21 @@
         cout << "Speed :    " << selectCharacter->speed << endl;
     }
 
+    void Character::setArrayOfItems0(string numItems, int i)
+    {   Character IP;
+        IP.arrayOfitems[0] = "computer of doom";    
+    }
+
+    void setArrayOfItems1(string numItems, int i)
+    {
+        Character IP;
+        IP.arrayOfitems[1] = "Chick-Fil-A Sandwhich";
+    }
+
+    void setArrayOfItems2(string numItems, int i)
+    {
+        Character IP;
+        IP.arrayOfitems[2] = "Coder's shoes";
+    }
+
    
