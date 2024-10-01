@@ -9,14 +9,25 @@
 #include<climits>
 using namespace std;
 
-class Forest
+class Forest 
 {
-private:
-    string rooms[7] = {"Start Room", "Room 1", "Room 2", "Room 3", "Room 4", "Room 5","Fight Room"};
-    string currentRoom;
-    bool gameOver;
-public:
-    Forest () : currentRoom("Start Room"), gameOver(false){} 
+    private:
+        string rooms[7];
+        string currentRoom;
+        bool gameOver;
+
+    public:
+        Forest();  // Constructor declaration
+
+        void displayCurrentRoom();
+        void startGame();
+
+    private:
+        void handleStartLine();
+        void handleRoom1and2();
+        void handleRoom3();
+        void handleRoom4and5();
+        void handleFightRoom();
 };
 
 #endif
