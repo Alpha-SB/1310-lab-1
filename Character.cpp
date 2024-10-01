@@ -1,11 +1,14 @@
 #include "Character.h"
 
+using namespace std;
+
    Character::Character(string n, int hp, int as, int s)
     {
         name = n;
         healthPoints = hp;
         attackStat = as;
         speed = s;
+
     } 
     
     string Character::getName() const 
@@ -46,11 +49,11 @@
 
     ostream& operator<<(ostream &strm, Character &c)
 	{
-		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#";
+		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#" << c.numItems << "#";
 		return strm;
 	}
 
-    Character setNumItems(string arrayOfitems[])
+    Character setNumItems(string* arrayOfitems)
     {
     int numItems = 3;
      arrayOfitems = new string[numItems];
@@ -66,19 +69,19 @@
 
     void Character::setArrayOfItems0(string numItems, int i)
     {   Character IP;
-        IP.arrayOfitems[0] = "computer of doom";    
+        IP.arrayOfItems[0] = "computer of doom";    
     }
 
     void setArrayOfItems1(string numItems, int i)
     {
         Character IP;
-        IP.arrayOfitems[1] = "Chick-Fil-A Sandwhich";
+        IP.arrayOfItems[1] = "Chick-Fil-A Sandwhich";
     }
 
     void setArrayOfItems2(string numItems, int i)
     {
         Character IP;
-        IP.arrayOfitems[2] = "Coder's shoes";
+        IP.arrayOfItems[2] = "Coder's shoes";
     }
 
    

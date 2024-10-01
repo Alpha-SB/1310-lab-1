@@ -13,6 +13,7 @@ class Character
     int speed;
     string* arrayOfItems;
     int numItems;
+    
 
     public:
     Character(string, int, int, int);
@@ -25,7 +26,7 @@ class Character
     int getSpeed() const;
     void setSpeed(int);
     friend ostream& operator<<(ostream& , Character&);
-    Character setNumItems(string);
+    Character setNumItems(string*);
     void printCharacters(Character*);
     void setArrayOfItems0(string, int);
 };
