@@ -49,7 +49,7 @@ using namespace std;
 
     ostream& operator<<(ostream &strm, Character &c)
 	{
-		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#" << c.numItems << "#";
+		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#" << c.numItems << "#" << c.arrayOfItems;//Delimiter?
 		return strm;
 	}
 
@@ -75,7 +75,7 @@ using namespace std;
     void setArrayOfItems1(string numItems, int i)
     {
         Character IP;
-        IP.arrayOfItems[1] = "Chick-Fil-A Sandwhich";
+        IP.arrayOfItems[1] = "Chick-Fil-A Sandwhich";//read it from a file, alloacte read back to a file
     }
 
     void setArrayOfItems2(string numItems, int i)
