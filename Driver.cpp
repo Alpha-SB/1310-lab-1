@@ -1,6 +1,6 @@
 /*
     Title: Program One
-	Authors: Sawyer Blanchford, Anthony Cosentino, Zachary Jones, Gabe Simpkins
+	Authors: Sawyer Blanchford, Anthony Cosentino, Zachary Jones, Gabe Simpkins, and Chris Wilson
 	Date: 9/16/2024
 	Purpose: 
 */
@@ -192,7 +192,7 @@ class Forest
         
     public:
     Character();
-    Character(string,int,int,int);
+    Character(string n,int hp,int as,int s);
     ~Character();
 
     //overloaded operator from song.h example.
@@ -202,14 +202,14 @@ class Forest
 			return strm;
 		}
 
-    Character(string n, int hp, int as, int s)
+    Character(string n, int hp, int as, int s) 
     {
         name = n;
         healthPoints = hp;
         attackStat = as;
         speed = s;
     }
-    
+
     string getName() const 
     {
         return name;
@@ -237,11 +237,11 @@ class Forest
         attackStat = as;
     }
 
-    int Character::getSpeed() const
+    int getSpeed() const
     {
         return speed;
     }
-    void Character::setSpeed(int s)
+    void setSpeed(int s)
     {
         speed = s;
     }
@@ -287,22 +287,8 @@ void Character::printCharacters(Character* selectCharacter)
 }*/
 class Interactions
 {
+}
 
-    private:
-        int damage, remaninghealth;
-        string* battlelog;
-    public:
-        Interactions();
-        Interactions(int,int);
-        ~Interactions();
-        int damage(int);
-        int remaninghealth(int,int);
-        string log(int,int);
-        void savelogtofile(fstream,string);
-        /* during a fight add each cout of x did x damage to x and x has x hp left
-        to the string array battlelog then after the fight call a function that
-        is a for loop that prints every element of the array into a txt file. */
-};
 int damage(int attack)
 {   int damagemulti,damage;
     damagemulti = (rand() % 3) + 1;
@@ -330,6 +316,7 @@ void fight(Character Unit[], int BadGuy)
 {   int char1speed, Enemyspeed;
     int char1attack, Enemyattack;
     int char1hp, Enemyhp;
+    string char1name, Enemyname;
     string char1name, Enemyname;
     Character Player,Enemy;
     Player = Unit[0];

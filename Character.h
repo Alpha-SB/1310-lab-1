@@ -18,6 +18,7 @@ class Character
     
 
     public:
+    Character();
     Character(string, int, int, int);
     string getName() const;
     void setName(string);
@@ -35,5 +36,6 @@ class Character
     void setArrayOfItems2(string, int );
     
 };
+
 
 #endif
