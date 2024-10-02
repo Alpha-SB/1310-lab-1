@@ -328,6 +328,23 @@ int runGame(int startingPoint, Character Unit[]){
     return startingPoint;
     }
 
+
+int getValidateInput(){
+	int num;
+	
+	
+		while(!(cin >> num))
+		{
+			cout << "Please enter a valid number" << endl;
+			cin.clear(); //clears all stream bits (good, bad, eof, fail)
+			cin.ignore(10000, '\n'); //removes up to 10000 characters from buffer until a newline is removed
+			cout << "\nEnter a number: ";
+		}
+	
+		
+	return num;
+}
+
 int main ()
 {
     int choice = 0,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
@@ -538,22 +555,4 @@ int main ()
     RoomN = new string*[5];
     RoomN[1] = new string[5];
     RoomN[1][5];
-}
-
-
-
-int getValidateInput(){
-	int num;
-	
-	
-		while(!(cin >> num))
-		{
-			cout << "Please enter a valid number" << endl;
-			cin.clear(); //clears all stream bits (good, bad, eof, fail)
-			cin.ignore(10000, '\n'); //removes up to 10000 characters from buffer until a newline is removed
-			cout << "\nEnter a number: ";
-		}
-	
-		
-	return num;
 }
