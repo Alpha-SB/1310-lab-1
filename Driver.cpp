@@ -121,7 +121,7 @@ class Forest
         }
 };
 
-/*class Character
+class Character
 {
 
 	private: 
@@ -211,7 +211,7 @@ class Forest
     };//put Character:: in character.cpp*/
     
    // Character selectCharacter(string name, double healthPoints, double attackStat, int speed);
-    /*void printCharacters(Character* selectCharacter);
+    void printCharacters(Character* selectCharacter);
    
 };
 
@@ -227,10 +227,24 @@ void Character::printCharacters(Character* selectCharacter)
     cout << "Health Points:   " << selectCharacter->healthPoints << endl;
     cout << "Hit Points:  " << selectCharacter->attackStat << endl;
     cout << "Speed :    " << selectCharacter->speed << endl;
-}*/
+}
 class Interactions
 {
-}
+     private:
+        int damage, remaninghealth;
+        string* battlelog;
+    public:
+        Interactions();
+        Interactions(int,int);
+        ~Interactions();
+        int damagedelt(int);
+        int characterremaninghealth(int,int);
+        string log(int,int,string,string);
+        void savelogtofile(fstream,string);
+        /* during a fight add each cout of x did x damage to x and x has x hp left
+        to the string array battlelog then after the fight call a function that
+        is a for loop that prints every element of the array into a txt file. */
+};
 
 int damage(int attack)
 {   int damagemulti,damage;
