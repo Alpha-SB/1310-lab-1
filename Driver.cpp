@@ -22,14 +22,49 @@ class Forest
     private:
         string rooms[7] = {"Start Room", "Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Fight Room"};
         string currentRoom;
+        string*** roomItems;
         bool gameOver;
 
     public:
-        Forest() : currentRoom("Start Room"), gameOver(false) {}  // Constructor to initialize game
+        Forest() : currentRoom("Start Room"), gameOver(false) 
+        {
+            roomItems = new string**[4];
+
+            for (int i = 0; i < 7; ++i) 
+            {
+                roomItems[i] = new string*[2];
+            }
+
+            roomItems[1][0] = new string("Map");
+            roomItems[1][1] = new string("Key");
+
+            roomItems[2][0] = new string("Sword");
+            roomItems[2][1] = new string("Shield");
+
+            roomItems[4][0] = new string("Healing Potion");
+            roomItems[4][1] = new string("Armor");
+
+            roomItems[5][0] = new string("Bow");
+            roomItems[5][1] = new string("Arrows");
+        }
+
+        ~Forest() 
+        {
+            for (int i = 0; i < 7; ++i) 
+            {
+                for (int j = 0; j < 2; ++j)
+                {
+                    delete roomItems[i][j];
+                }
+                delete[] roomItems[i];
+            }  
+            delete[] roomItems; 
+        }
 
         void displayCurrentRoom() 
         {
             cout << "\nYou are currently in " << currentRoom << endl;
+            displayRoomItems();
         }
 
         void startGame() 
@@ -60,14 +95,36 @@ class Forest
         }
 
     private:
+        void displayRoomItems() 
+        {
+            // Find the current room index
+            int roomIndex = getRoomIndex(currentRoom);
+            if (roomIndex != -1) 
+            {
+                cout << "Items in this room: " << *roomItems[roomIndex][0] << ", " << *roomItems[roomIndex][1] << endl;
+            }
+        }
+
+        int getRoomIndex(const string& room) 
+        {
+            for (int i = 0; i < 7; ++i) 
+            {
+                if (rooms[i] == room) 
+                {
+                    return i;
+                }
+            }
+            return -1;  // Room not found
+        }
+
         void handleStartLine() 
         {
             int input;
         ask1:
             displayCurrentRoom();
             cout << "What would you like to do?" << endl;
-            cout << "1: to Go to Room 1" << endl;
-            cout << "2: to Go to Room 2" << endl;
+            cout << "1: Go to Room 1" << endl;
+            cout << "2: Go to Room 2" << endl;
             cin >> input;
 
             if (input != 1 && input != 2) goto ask1;
@@ -80,7 +137,7 @@ class Forest
         ask2:
             displayCurrentRoom();
             cout << "What would you like to do?" << endl;
-            cout << "3: to Go to Room 3" << endl;
+            cout << "3: Go to Room 3" << endl;
             cin >> input;
 
             if (input != 3) goto ask2;
@@ -93,8 +150,8 @@ class Forest
         ask3:
             displayCurrentRoom();
             cout << "What would you like to do?" << endl;
-            cout << "4: to Go to Room 4" << endl;
-            cout << "5: to Go to Room 5" << endl;
+            cout << "4: Go to Room 4" << endl;
+            cout << "5: Go to Room 5" << endl;
             cin >> input;
 
             if (input != 4 && input != 5) goto ask3;
