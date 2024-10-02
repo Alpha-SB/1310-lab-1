@@ -461,7 +461,7 @@ int main ()
                         break;
                     if (startingPoint == 7)
                         break;
-                    //do you want to continue
+                    
                     cout << "\nWould you like to continue? Yes(1) or No (2)";
                     cin >> choice;
                     choice = getValidateInput(); 
@@ -507,7 +507,7 @@ int main ()
                 if (!outFile.is_open())
                     break;
                 
-                outFile << "";//this may or may not work. I can fix it later -Gabe
+                outFile << ""; // should clear file
                 
                 //Save file template: name#numHP#numAP#numSP#numitems#itemName#numlevel#
                 //Save file  example: Brandon Vandy#143#10#998#2#Brandons Shit sword#Brandons mid ass bow#7#
