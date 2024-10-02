@@ -12,6 +12,7 @@
 #include<cctype>
 #include<climits>
 #include"Interactions.h"
+#include "Character.h"
 
 using namespace std;
 
@@ -120,7 +121,7 @@ class Forest
         }
 };
 
-class Character
+/*class Character
 {
 
 	private: 
@@ -210,7 +211,7 @@ class Character
     };//put Character:: in character.cpp*/
     
    // Character selectCharacter(string name, double healthPoints, double attackStat, int speed);
-    void printCharacters(Character* selectCharacter);
+    /*void printCharacters(Character* selectCharacter);
    
 };
 
@@ -226,7 +227,7 @@ void Character::printCharacters(Character* selectCharacter)
     cout << "Health Points:   " << selectCharacter->healthPoints << endl;
     cout << "Hit Points:  " << selectCharacter->attackStat << endl;
     cout << "Speed :    " << selectCharacter->speed << endl;
-}
+}*/
 class Interactions
 {
 
@@ -326,6 +327,23 @@ int runGame(int startingPoint, Character Unit[]){
 
     return startingPoint;
     }
+
+
+int getValidateInput(){
+	int num;
+	
+	
+		while(!(cin >> num))
+		{
+			cout << "Please enter a valid number" << endl;
+			cin.clear(); //clears all stream bits (good, bad, eof, fail)
+			cin.ignore(10000, '\n'); //removes up to 10000 characters from buffer until a newline is removed
+			cout << "\nEnter a number: ";
+		}
+	
+		
+	return num;
+}
 
 int main ()
 {
@@ -537,22 +555,4 @@ int main ()
     RoomN = new string*[5];
     RoomN[1] = new string[5];
     RoomN[1][5];
-}
-
-
-
-int getValidateInput(){
-	int num;
-	
-	
-		while(!(cin >> num))
-		{
-			cout << "Please enter a valid number" << endl;
-			cin.clear(); //clears all stream bits (good, bad, eof, fail)
-			cin.ignore(10000, '\n'); //removes up to 10000 characters from buffer until a newline is removed
-			cout << "\nEnter a number: ";
-		}
-	
-		
-	return num;
 }
