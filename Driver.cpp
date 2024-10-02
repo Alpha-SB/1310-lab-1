@@ -140,7 +140,7 @@ class Character
     //overloaded operator from song.h example.
     friend ostream &operator << (ostream &strm, Character &c)
 		{
-			strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#";
+			strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#" <<c.numItems;
 			return strm;
 		}
 
@@ -219,26 +219,14 @@ Character setNumItems(string arrayOfitems[])
     int numItems = 3;
      arrayOfitems = new string[numItems];
 }
-  /*Character  Character::selectCharacter(string name, double healthPoints, double attackStat, int speed)
-    {
-        
 
-        Character-> name = name;
-        selectCharacter-> healthPoints = healthPoints;
-        selectCharacter-> attackStat = attackStat;
-        selectCharacter-> speed = speed;
-
-        llllllllllllll
-        
-        
-    }*/
-    void Character::printCharacters(Character* selectCharacter)
-    {
-        cout << "Character Name:    " << selectCharacter->name << endl;
-        cout << "Health Points:   " << selectCharacter->healthPoints << endl;
-        cout << "Hit Points:  " << selectCharacter->attackStat << endl;
-        cout << "Speed :    " << selectCharacter->speed << endl;
-    }
+void Character::printCharacters(Character* selectCharacter)
+{
+    cout << "Character Name:    " << selectCharacter->name << endl;
+    cout << "Health Points:   " << selectCharacter->healthPoints << endl;
+    cout << "Hit Points:  " << selectCharacter->attackStat << endl;
+    cout << "Speed :    " << selectCharacter->speed << endl;
+}
 class Interactions
 {
 
@@ -280,26 +268,36 @@ int remaininghealth(int damage,int health)
     HPleft = health - damage;
     return HPleft;
 }
-void fight(Character Unit[])
-{   int char1speed, char2speed;
-    int char1attack, char2attack;
-    int char1hp, char2hp;
-    string char1name, char2name;
-    Character variable;
-    variable = Unit[0];
-    char1name = variable.getName();
-    variable.setAttackStat(150+10);
-    char1hp = variable.getHealthPoints();
-    variable.setHealthPoints(char1hp+10);
-    cout << "e";
-
+void fight(Character Unit[], int BadGuy)
+{   int char1speed, Enemyspeed;
+    int char1attack, Enemyattack;
+    int char1hp, Enemyhp;
+    string char1name, Enemyname;
+    Character Player,Enemy;
+    Player = Unit[0];
+    Enemy = Unit[BadGuy];
+    char1name = Player.getName();
+    char1attack = Player.getAttackStat();
+    char1hp = Player.getHealthPoints();
+    char1speed = Player.getSpeed();
+    Enemyname = Enemy.getName();
+    Enemyattack = Enemy.getAttackStat();
+    Enemyhp = Enemy.getHealthPoints();
+    Enemyspeed = Enemy.getSpeed();
     
+
+
+
+
+
+
+
 }
 
 
 
 int runGame(int startingPoint, Character Unit[]){
-    
+    int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3;
     switch (startingPoint)
     {
         case 1: 
@@ -307,7 +305,7 @@ int runGame(int startingPoint, Character Unit[]){
             break;
         case 2: 
             Unit[1];
-            fight(Unit[0]);
+            fight(Unit,Enemy1);
             break;
         case 3: 
             
