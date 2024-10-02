@@ -121,7 +121,7 @@ class Forest
         }
 };
 
-class Character
+/*class Character
 {
 
 	private: 
@@ -211,7 +211,7 @@ class Character
     };//put Character:: in character.cpp*/
     
    // Character selectCharacter(string name, double healthPoints, double attackStat, int speed);
-    void printCharacters(Character* selectCharacter);
+    /*void printCharacters(Character* selectCharacter);
    
 };
 
@@ -227,7 +227,7 @@ void Character::printCharacters(Character* selectCharacter)
     cout << "Health Points:   " << selectCharacter->healthPoints << endl;
     cout << "Hit Points:  " << selectCharacter->attackStat << endl;
     cout << "Speed :    " << selectCharacter->speed << endl;
-}
+}*/
 class Interactions
 {
 
