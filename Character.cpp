@@ -1,5 +1,7 @@
 #include "Character.h"
 
+#include<iomanip>
+
 using namespace std;
 
    Character::Character(string n, int hp, int as, int s)
@@ -49,11 +51,11 @@ using namespace std;
 
     ostream& operator<<(ostream &strm, Character &c)
 	{
-		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#" << c.numItems << "#" << c.arrayOfItems;//Delimiter?
+		strm << c.name << "#" << c.healthPoints << "#" << c.attackStat << "#" << c.speed << "#" << c.numItems << "#" << c.arrayOfItems << "#";//Delimiter?
 		return strm;
 	}
 
-    Character setNumItems(string* arrayOfitems)
+    Character Character::setNumItems(string* arrayOfitems)
     {
     int numItems = 3;
      arrayOfitems = new string[numItems];
@@ -68,20 +70,20 @@ using namespace std;
     }
 
     void Character::setArrayOfItems0(string numItems, int i)
-    {   Character IP;
-        IP.arrayOfItems[0] = "computer of doom";    
+    {   //Character IP;
+        arrayOfItems[0] = "computer of doom";    
     }
 
-    void setArrayOfItems1(string numItems, int i)
+    void Character::setArrayOfItems1(string numItems, int i)
     {
-        Character IP;
-        IP.arrayOfItems[1] = "Chick-Fil-A Sandwhich";//read it from a file, alloacte read back to a file
+        //Character IP;
+        arrayOfItems[1] = "Chick-Fil-A Sandwhich";//read it from a file, alloacte read back to a file
     }
 
-    void setArrayOfItems2(string numItems, int i)
+    void Character::setArrayOfItems2(string numItems, int i)
     {
-        Character IP;
-        IP.arrayOfItems[2] = "Coder's shoes";
+        //Character IP;
+        arrayOfItems[2] = "Coder's shoes";
     }
 
    

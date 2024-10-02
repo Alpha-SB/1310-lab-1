@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+
 #ifndef Character_H
 #define Character_H
 
@@ -29,6 +31,8 @@ class Character
     Character setNumItems(string*);
     void printCharacters(Character*);
     void setArrayOfItems0(string, int);
+    void setArrayOfItems1(string numItems, int i);
+    void setArrayOfItems2(string, int );
     
 };
 
