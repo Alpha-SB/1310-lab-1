@@ -288,18 +288,40 @@ void fight(Character Unit[], int BadGuy)
     Enemyspeed = Enemy.getSpeed();
 
     if(Playerspeed > Enemyspeed)
-    {
+    {   
         cout << endl << Playername << " outsped " << Enemyname << " and was able to attack first." << endl; 
+        
         ouch = damage(Playerattack);
         Enemyhp = remaininghealth(ouch,Enemyhp);
         cout << Playername << " inflicted " << ouch << " damage to " << Enemyname << ", " << Enemyname << " has " << Enemyhp << " hp left." << endl;
+
+
     }
-    else 
+    if(Enemyspeed > Playerspeed) 
     {
         cout << endl << Enemyname << " outsped " << Playername << " and was able to attack first." << endl; 
-        ouch = damage(Enemyattack);
-        Playerhp = remaininghealth(ouch,Playerhp);
-        cout << Enemyname << " inflicted " << ouch << " damage to " << Playername << ", " << Playername << " has " << Playerhp << " hp left." << endl;
+        do
+        {
+            ouch = damage(Enemyattack);
+            Playerhp = remaininghealth(ouch,Playerhp);
+            cout << Enemyname << " inflicted " << ouch << " damage to " << Playername << ", " << Playername << " has " << Playerhp << " hp left." << endl;
+            if(Playerhp <= 0)
+            {
+                cout << Playername << " got freakin merked bro, by " << Enemyname << " get good bro." << endl;
+                break;
+            }
+            ouch = damage(Playerattack);
+            Enemyhp = remaininghealth(ouch,Enemyhp);
+            cout << Playername << " inflicted " << ouch << " damage to " << Enemyname << ", " << Enemyname << " has " << Enemyhp << " hp left." << endl;
+            if (Enemyhp <=0)
+            {
+                cout << Playername << " absolutly wreked " << Enemyname << "freakin ez sauce gg." << endl;
+                break;
+            }
+            //insert interacti0ns pointer log to save the battle in a string log 
+        } while (Playerhp > 0 && Enemyhp > 0);
+        
+       
     }
     
 
