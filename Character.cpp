@@ -12,7 +12,13 @@ using namespace std;
     attackStat = 0;        
     speed = 0;             
     numItems = 0;          
-} 
+   } 
+    
+    Character::~Character()
+    {
+        
+    }
+
    Character::Character(string n, int hp, int as, int s)
     {
         name = n;

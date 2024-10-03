@@ -19,6 +19,7 @@ class Character
 
     public:
     Character();
+    ~Character();
     Character(string, int, int, int);
     string getName() const;
     void setName(string);
