@@ -270,22 +270,37 @@ int remaininghealth(int damage,int health)
     return HPleft;
 }
 void fight(Character Unit[], int BadGuy)
-{   int char1speed, Enemyspeed;
-    int char1attack, Enemyattack;
-    int char1hp, Enemyhp;
-    string char1name, Enemyname;
-    string char1name, Enemyname;
+{   int Playerspeed, Enemyspeed;
+    int Playerattack, Enemyattack;
+    int Playerhp, Enemyhp;
+    int ouch;
+    string Playername, Enemyname;
     Character Player,Enemy;
     Player = Unit[0];
     Enemy = Unit[BadGuy];
-    char1name = Player.getName();
-    char1attack = Player.getAttackStat();
-    char1hp = Player.getHealthPoints();
-    char1speed = Player.getSpeed();
+    Playername = Player.getName();
+    Playerattack = Player.getAttackStat();
+    Playerhp = Player.getHealthPoints();
+    Playerspeed = Player.getSpeed();
     Enemyname = Enemy.getName();
     Enemyattack = Enemy.getAttackStat();
     Enemyhp = Enemy.getHealthPoints();
     Enemyspeed = Enemy.getSpeed();
+
+    if(Playerspeed > Enemyspeed)
+    {
+        cout << endl << Playername << " outsped " << Enemyname << " and was able to attack first." << endl; 
+        ouch = damage(Playerattack);
+        Enemyhp = remaininghealth(ouch,Enemyhp);
+        cout << Playername << " inflicted " << ouch << " damage to " << Enemyname << ", " << Enemyname << " has " << Enemyhp << " hp left." << endl;
+    }
+    else 
+    {
+        cout << endl << Enemyname << " outsped " << Playername << " and was able to attack first." << endl; 
+        ouch = damage(Enemyattack);
+        Playerhp = remaininghealth(ouch,Playerhp);
+        cout << Enemyname << " inflicted " << ouch << " damage to " << Playername << ", " << Playername << " has " << Playerhp << " hp left." << endl;
+    }
     
 
 
