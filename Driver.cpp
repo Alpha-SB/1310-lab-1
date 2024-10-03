@@ -91,7 +91,7 @@ int main ()
                 Player[4] = new Character("King Vandergriff", 150, 75, 5, 0);
                 //this section runs the actual game
                 do {
-                    startingPoint = game.runGame(startingPoint, *Player);
+                    startingPoint = game->runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 8)
@@ -151,7 +151,7 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = game.runGame(startingPoint, *Player);
+                    startingPoint = game->runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 8)
