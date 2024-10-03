@@ -21,5 +21,15 @@ class Forest
         void handleRoom1and2();
         void handleRoom3();
         void handleRoom4and5();
+        void handleFightRoom();
+    
+    public:
+    Forest();
+    ~Forest();
+
+    void displayCurrentRoom();
+    void startGame();
+
 };
 
+#endif
