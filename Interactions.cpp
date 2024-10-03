@@ -39,15 +39,13 @@ string Interactions::PH(Interactions i)
 
 
 }
+
 string Interactions::log(int s,Interactions *b)
 {   battlelog = new string[s];
     for (int i = 0; i < s; i++)
     {
         battlelog[i] = b->PH(b[i]);
     }
-    
-
-
 }
 
 
@@ -210,21 +208,21 @@ int Interactions::runGame(int startingPoint, Character Unit[])
     return startingPoint;
 }
 
-int Interactions::damagedelt(int attack)
-{   
-    int damagemulti,damage;
-    damagemulti = (rand() % 3) + 1;
-    if (damagemulti == 1)
-    {   
-        damage = attack * 0.75;
-    }
-    if (damagemulti == 2)
-    {   
-        damage = attack;
-    }
-    if (damagemulti == 3)
-    {   
-        damage = attack * 1.25;
-    }
-    return damage;
-}
+// int Interactions::damagedelt(int attack)
+// {   
+//     int damagemulti,damage;
+//     damagemulti = (rand() % 3) + 1;
+//     if (damagemulti == 1)
+//     {   
+//         damage = attack * 0.75;
+//     }
+//     if (damagemulti == 2)
+//     {   
+//         damage = attack;
+//     }
+//     if (damagemulti == 3)
+//     {   
+//         damage = attack * 1.25;
+//     }
+//     return damage;
+// }

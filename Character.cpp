@@ -12,14 +12,15 @@ using namespace std;
     attackStat = 0;        
     speed = 0;             
     numItems = 0;          
-} 
-   Character::Character(string n, int hp, int as, int s)
+    } 
+
+    Character::Character(string n, int hp, int as, int s, int i)
     {
-        name = "";             
-        healthPoints = 0;      
-        attackStat = 0;        
-        speed = 0;             
-        numItems = 0;          
+        name = n;
+        healthPoints = hp;
+        attackStat = as;
+        speed = s;
+        numItems = i;          
     }    
 
     Character::~Character()
@@ -27,14 +28,7 @@ using namespace std;
         
     }
 
-    void Character::CreateCharacter(string n, int hp, int as, int s, int i)
-    {
-        name = n;
-        healthPoints = hp;
-        attackStat = as;
-        speed = s;
-        numItems = i;
-    } 
+   
     
     string Character::getName() const 
     {
