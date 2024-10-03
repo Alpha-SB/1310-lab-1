@@ -1,20 +1,58 @@
 #include "Interactions.h"
 #include "Character.h"
 
-Interactions::Interactions()
+Interactions::Interactions(int d,int rh,string AN,string RN)
 {
-    damage = 0;
-    remaninghealth = 0;
+    damage = d;
+    remaninghealth = rh;
+    AttckerName = AN;
+    ReciverName = RN;
+}
+void Interactions::makebattlelog()
+{   int i;
+    battlelog = new string[i];
+
 }
 
-Interactions::~Interactions()
+string Interactions::getDamage() const
+{   string i ;
+    i = damage;
+    return i;
+}
+string Interactions::getRH() const
+{   string i;
+    i = remaninghealth;
+    return i;
+}
+string Interactions::getAN() const
 {
+    return AttckerName;
+}
+string Interactions::getRN() const
+{
+    return ReciverName;
+}
+string Interactions::PH(Interactions i)
+{   string strm;
+    strm = i.getAN(), " hit ", i.getRN(), " for ", i.getDamage(), ", ", i.getRN(), " has ", i.getRH(), " left.";
+    return strm;
+
+
+}
+string Interactions::log(int s,Interactions *b)
+{   battlelog = new string[s];
+    for (int i = 0; i < s; i++)
+    {
+        battlelog[i] = b->PH(b[i]);
+    }
+    
+
 
 }
 
-int Interactions::damageInt(int attack)
-{   
-    int damagemulti,damage;
+
+int Interactions::damagedelt(int attack)
+{   int damagemulti,damage;
     damagemulti = (rand() % 3) + 1;
     if (damagemulti == 1)
     {   
