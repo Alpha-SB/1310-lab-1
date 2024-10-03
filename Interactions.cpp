@@ -61,42 +61,44 @@ int Interactions::runGame(int startingPoint, Character Unit[])
     int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3;
     string itemName;
     Character c;
+    
     switch (startingPoint)
     {
         case 1: 
             itemName = c.setArrayOfItems0();
-            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find " << itemName;
-            if (itemName[0]=='C'){
-
+            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
+            if (itemName[0]=='S'){
+                c.setAttackStat(c.getAttackStat()+10);
+                cout << "\n you are given a 10 point attact stat boost!\n";
             }
-            else if (itemName[1]=='M'){
-
+            else if (itemName[0]=='M'){
+                c.setAttackStat(c.getAttackStat()+20);
+                cout << "\n you are given a 20 point attact stat boost!\n";
             }
             else {
-                
+                c.setAttackStat(c.getAttackStat()+30);
+                cout << "\n you are given a 30 point attact stat boost!\n";
             }
-            
-
-            break;
+            return 3;
         case 2: 
             Unit[1];
             fight(Unit,Enemy1);
-            break;
+            return 3;
         case 3: 
             
-            break;
+            return 5;
         case 4: 
             Unit[2];
-            break;
+            return 5;
         case 5: 
              
-            break;
+            return ;
         case 6: 
             Unit[3];
-            break;
+            return 7;
         case 7: 
             Unit[4];
-            break;
+            return 8;
     }
 
     return startingPoint;

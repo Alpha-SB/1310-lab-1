@@ -16,7 +16,7 @@ class Forest
         string rooms[7] = {"Start Room", "Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Fight Room"};
         string currentRoom;
         bool gameOver;
-
+    public:
         void handleStartLine();
         void handleRoom1and2();
         void handleRoom3();

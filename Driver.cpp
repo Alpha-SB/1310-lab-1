@@ -91,7 +91,7 @@ int main ()
                 //this section runs the actual game
                 do 
                 {
-                    game.runGame(startingPoint, *Player);
+                    startingPoint = game.runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 7)

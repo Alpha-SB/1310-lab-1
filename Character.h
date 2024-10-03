@@ -21,6 +21,7 @@ class Character
     Character();
     Character(string, int, int, int);
     ~Character();
+    void CreateCharacter(string, int, int, int, int);
     string getName() const;
     void setName(string);
     int getHealthPoints() const;
@@ -32,16 +33,10 @@ class Character
     friend ostream& operator<<(ostream& , Character&);
     void setNumItems(string*);
     void printCharacters(Character*);
-<<<<<<< Updated upstream
-    void setArrayOfItems0(string, int);
-    void setArrayOfItems1(string numItems, int i);
-    void setArrayOfItems2(string, int );
-=======
     string setArrayOfItems0();
     string setArrayOfItems1();
     string setArrayOfItems2();
     
->>>>>>> Stashed changes
 };
 
 

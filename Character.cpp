@@ -96,11 +96,6 @@ using namespace std;
         cout << "Speed :    " << selectCharacter->speed << endl;
     }
 
-<<<<<<< Updated upstream
-    void Character::setArrayOfItems0(string numItems, int i)
-    {   //Character IP;
-        arrayOfItems[0] = "Computer of Doom";    
-=======
     string Character::setArrayOfItems0()
     {   
         int num = (rand()%3)+1;
@@ -108,16 +103,15 @@ using namespace std;
         switch(num){
 
             case 1:
-                arrayOfItems[0] = "Computer of lame"; 
+                arrayOfItems[0] = "Sword of lame"; 
                 return arrayOfItems[0];
             case 2:
-                arrayOfItems[0] = "Mid Computer of mid";
+                arrayOfItems[0] = "Mid Sword of mid";
                 return arrayOfItems[0];
             case 3:
-                arrayOfItems[0] = "Great Computer of doom";
+                arrayOfItems[0] = "Great Sword of DOOM";
                 return arrayOfItems[0];
         }    
->>>>>>> Stashed changes
     }
 
     string Character::setArrayOfItems1()
@@ -127,39 +121,34 @@ using namespace std;
         switch(num){
 
             case 1:
-                arrayOfItems[1] = "Deluxe Chick-Fil-A Sandwhich"; 
-                return arrayOfItems[0];
+                arrayOfItems[1] = "Walmart slides de Coder"; 
+                return arrayOfItems[1];
             case 2:
-                arrayOfItems[1] = "Chick-Fil-A Sandwhich";
-                return arrayOfItems[0];
+                arrayOfItems[1] = "Nikes de Coder";
+                return arrayOfItems[1];
             case 3:
-                arrayOfItems[1] = "Coder's shoes";
-                return arrayOfItems[0];
+                arrayOfItems[1] = "Jordans de Coder";
+                return arrayOfItems[1];
         }   
     }
 
     string Character::setArrayOfItems2()
     {
-<<<<<<< Updated upstream
-        //Character IP;
-        arrayOfItems[2] = "Coder's Shoes";
-=======
         
         int num = (rand()%3)+1;
         
         switch(num){
 
             case 1:
-                arrayOfItems[2] = "computer of doom"; 
-                return arrayOfItems[0];
+                arrayOfItems[2] = "Hardees chicken slider";
+                return arrayOfItems[2];
             case 2:
                 arrayOfItems[2] = "Chick-Fil-A Sandwhich";
-                return arrayOfItems[0];
+                return arrayOfItems[2];
             case 3:
-                arrayOfItems[2] = "Coder's shoes";
-                return arrayOfItems[0];
+                arrayOfItems[2] = "Deluxe Chick-Fil-A Sandwhich"; 
+                return arrayOfItems[2];
         }   
->>>>>>> Stashed changes
     }
 
    
