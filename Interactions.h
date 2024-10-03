@@ -15,19 +15,23 @@ class Interactions
 {
 
     private:
-        int damage, remaninghealth;
+        int logsize, damage, remaninghealth;
+        string AttckerName, ReciverName;
         string* battlelog;
     public:
         Interactions();
+        Interactions(int,int,string,string);
         ~Interactions();
+        void makebattlelog();
         int damagedelt(int);
         int characterremaninghealth(int,int);
-        string log(int,int,string,string);
+        string log(int,Interactions*);
+        string getDamage() const;
+        string getRH() const;
+        string getAN() const;
+        string getRN() const;
         void savelogtofile(fstream,string);
-        void fight(Character[], int);
-        int runGame(int, Character[]);
-        int damageInt(int);
-        
+        string PH(Interactions);
         /* during a fight add each cout of x did x damage to x and x has x hp left
         to the string array battlelog then after the fight call a function that
         is a for loop that prints every element of the array into a txt file. */
