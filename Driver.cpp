@@ -227,9 +227,10 @@ int main ()
     return 0;
 
 
-
+/*
     string **RoomN;
     RoomN = new string*[5];
-    RoomN[1] = new string[5];
+    RoomN[1] = new string[5]; 
     RoomN[1][5];             //////What is this for? - Chris 
+    */
 }
