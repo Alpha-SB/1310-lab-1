@@ -31,7 +31,8 @@ int main ()
     Player = new Character*[maxCharacters];
     Character **PrintC;
     PrintC = Player;
-    Interactions game; //obj to run interactions functions
+    Interactions* game; //obj to run interactions functions
+    game = new Interactions();
      
 
     //ascii art of game title
@@ -74,23 +75,23 @@ int main ()
                 switch (CharacterSelect){
                     case 1:
                         //Character name and other data for each class in each case ;
-                        //selectCharacter(UserName, 175, 25, 3);
-                        Player[0]->CreateCharacter(UserName, 175, 25, 3, 0); 
+                        //selectCharacter(UserName, 175, 25, 3); 
+                        Player[0] = new Character(UserName, 175, 25, 3, 0);
                     case 2:
                         //selectCharacter(UserName, 150, 50, 6);
-                        Player[0]->CreateCharacter(UserName, 175, 50, 6, 0);
+                        Player[0] = new Character(UserName, 175, 50, 6, 0);
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
-                        Player[0]->CreateCharacter(UserName, 125 , 75, 9, 0);
+                        Player[0] = new Character(UserName, 125 , 75, 9, 0);
                 }   
 
-                Player[1]->CreateCharacter("Private Joey", 75, 25, 6, 0);
-                Player[2]->CreateCharacter("Commander John", 125, 50, 3, 0);
-                Player[3]->CreateCharacter("General Wes", 100, 75, 5, 0);
-                Player[4]->CreateCharacter("King Vandergriff", 150, 75, 5, 0);
-                //this section runs the actual game, assuming it has been opened
+                Player[1] = new Character("Private Joey", 75, 25, 6, 0);
+                Player[2]= new Character("Commander John", 125, 50, 3, 0);
+                Player[3] = new Character("General Wes", 100, 75, 5, 0);
+                Player[4] = new Character("King Vandergriff", 150, 75, 5, 0);
+                //this section runs the actual game
                 do {
-                    startingPoint = game.runGame(startingPoint, *Player);
+                    startingPoint = game->runGame(startingPoint, *Player);
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
@@ -158,7 +159,7 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = game.runGame(startingPoint, *Player);
+                    startingPoint = game->runGame(startingPoint, *Player);
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;

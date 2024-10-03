@@ -14,7 +14,7 @@ class Forest
     private:
         string rooms[7];        // Room names
         string currentRoom;      // Current room of the player
-        string*** roomItems;     // Pointer to an array of pointers for items in the rooms
+        string** roomItems;     // Pointer to an array of pointers for items in the rooms
         bool gameOver;           // Game state flag
 
     public:
