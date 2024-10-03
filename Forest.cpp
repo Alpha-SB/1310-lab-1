@@ -97,7 +97,7 @@ void Forest::startGame()
     }
 }
 
-void handleStartLine() 
+void Forest::handleStartLine() 
 {
     int input;
     do
@@ -112,7 +112,7 @@ void handleStartLine()
     currentRoom = rooms[input];
 }
 
-void handleRoom1and2() 
+void Forest::handleRoom1and2() 
 {
     int input;
     do
@@ -126,7 +126,7 @@ void handleRoom1and2()
     currentRoom = rooms[input];
 }
 
-void handleRoom3() 
+void Forest::handleRoom3() 
 {
     int input;
     do
@@ -141,7 +141,7 @@ void handleRoom3()
     currentRoom = rooms[input];
 }
 
-void handleRoom4and5() 
+void Forest::handleRoom4and5() 
 {
     int input;
     do
