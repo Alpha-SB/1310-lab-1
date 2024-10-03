@@ -94,7 +94,7 @@ int main ()
                     startingPoint = game.runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
-                    if (startingPoint == 7)
+                    if (startingPoint == 8)
                         break;
                     
                     cout << "\nWould you like to continue? Yes(1) or No (2)";
@@ -103,7 +103,7 @@ int main ()
                 }   while (choice == 1);
                 if (startingPoint == 0)
                         break;
-                if (startingPoint == 7){
+                if (startingPoint == 8){
                     cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
                     
                     outFile.open(fileName); 

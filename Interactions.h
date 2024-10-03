@@ -25,6 +25,7 @@ class Interactions
         void makebattlelog();
         int damagedelt(int);
         int characterremaninghealth(int,int);
+        void fight(Character,int);
         string log(int,Interactions*);
         string getDamage() const;
         string getRH() const;
