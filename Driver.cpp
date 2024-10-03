@@ -44,8 +44,8 @@ int main ()
                 
     do{
         
-        cout << "\n\n\nselect option:\n(1)\t\t(2)\t\t(3)\t\t(any other number)";
-        cout << "|START NEW GAME|\t|START LOAD GAME|\t|DELETE SAVE|\t|QUIT PROGRAM|";
+        cout << "\n\n\nselect option:\n(1)\t\t(2)\t\t(3)\t\t(any other number)\n";
+        cout << "|START NEW GAME|\t|START LOAD GAME|\t|DELETE SAVE|\t|QUIT PROGRAM|\n";
 
         int choice;
         choice = checkInput(choice);
@@ -55,7 +55,7 @@ int main ()
 
                 choice = 1;
 
-                cout << "Name New Save File: (Ex. File_Name.txt)";
+                cout << "Name New Save File: (Ex. File_Name.txt)\n";
                 cin >> fileName;
 
                 for (int i = 0; i < fileName.length(); i++)  //replaces spaces with underscore
@@ -88,36 +88,44 @@ int main ()
                 Player[2]->CreateCharacter("Commander John", 125, 50, 3, 0);
                 Player[3]->CreateCharacter("General Wes", 100, 75, 5, 0);
                 Player[4]->CreateCharacter("King Vandergriff", 150, 75, 5, 0);
-                //this section runs the actual game
+                //this section runs the actual game, assuming it has been opened
                 do {
                     startingPoint = game.runGame(startingPoint, *Player);
+                    //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 8)
                         break;
                     
-                    cout << "\nWould you like to continue? Yes(1) or No (2)";
+                    cout << "\nWould you like to continue? Yes(1) or No (2)\n";
                     cin >> choice;
                     choice = checkInput(choice); 
                 }   while (choice == 1);
-                if (startingPoint == 0)
-                        break;
-                if (startingPoint == 8){
-                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
-                    
+                //breaks if character dies (0) or character beats the game (8)
+                if (startingPoint == 0){
+                    cout << "Sorry you couldn't beat the game...see you next time, " << UserName << endl;
+                    //clears file
                     outFile.open(fileName); 
-                    outFile << ""; // should clear file
+                    outFile << ""; 
                     outFile.close();
                     break;
                 }
+                if (startingPoint == 8){
+                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
+                    //clears file
+                    outFile.open(fileName); 
+                    outFile << ""; 
+                    outFile.close();
+                    break;
+                }
+
                 outFile.open(fileName, ios::app); //opens save text file
 
                 outFile << *(Player[0]);
 
-                for (int i =0; i < /*numitems*/ 1;i++){
-                    outFile << *(Player[0]);//need a num items functions - sawyer 
-                    outFile << "#";
-                }
+                //Save file template: name#numHP#numAP#numSP#numlevel#
+                //Save file  example: Brandon Vandy#143#10#998#7#
+
                 outFile << startingPoint << "#";
                 outFile.close();
 
@@ -128,7 +136,7 @@ int main ()
                 choice = 1;
 
                 while (!inFile.is_open()){
-                    cout << "Which save file would you like to open? (Ex. File_Name.txt)";
+                    cout << "Which save file would you like to open? (Ex. File_Name.txt)\n";
                     cin >> fileName;
                     inFile.open(fileName);
                     if (inFile.is_open())
@@ -143,7 +151,7 @@ int main ()
 
                 //reads in the starting point from the end of the file, without reading in unneed data 
                 inFile.open(fileName);
-                inFile.seekg(-2, ifstream::end);//this looks bad, but I promise this is the most efficient way of getting the starting point
+                inFile.seekg(-2, ifstream::end);//this gets the starting point
                 getline(inFile, startingPointString, '#'); 
                 if (inFile.good())
                     startingPoint =  stoi(startingPointString);
@@ -151,33 +159,41 @@ int main ()
                 //this section runs the actual game, assuming it has been opened
                 do {
                     startingPoint = game.runGame(startingPoint, *Player);
+                    //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
                     if (startingPoint == 8)
                         break;
                     
-                    cout << "\nWould you like to continue? Yes(1) or No (2)";
+                    cout << "\nWould you like to continue? Yes(1) or No (2)\n";
                     cin >> choice;
                     choice = checkInput(choice);
                 }   while (choice == 1);
-                if (startingPoint == 0)
-                        break;
-                if (startingPoint == 8){
-                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
-                    
+                //breaks if character dies (0) or character beats the game (8)
+                if (startingPoint == 0){
+                    cout << "Sorry you couldn't beat the game...see you next time, " << UserName << endl;
+                    //clears file
                     outFile.open(fileName); 
-                    outFile << ""; // should clear file
+                    outFile << ""; 
                     outFile.close();
                     break;
                 }
+                if (startingPoint == 8){
+                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
+                    //clears file
+                    outFile.open(fileName); 
+                    outFile << ""; 
+                    outFile.close();
+                    break;
+                }
+
                 outFile.open(fileName, ios::app); //opens save text file
 
                 outFile << *(Player[0]);
 
-                for (int i =0; i < /*numitems*/ 1;i++){
-                    outFile << *(Player[0]);//need a num items functions - Sawyer 
-                    outFile << "#";
-                }
+                //Save file template: name#numHP#numAP#numSP#numlevel#
+                //Save file  example: Brandon Vandy#143#10#998#7#
+
                 outFile << startingPoint << "#";
                 outFile.close();
 
@@ -202,9 +218,6 @@ int main ()
                     break;
                 
                 outFile << ""; // should clear file
-                
-                //Save file template: name#numHP#numAP#numSP#numitems#itemName#numlevel#
-                //Save file  example: Brandon Vandy#143#10#998#2#Brandons Shit sword#Brandons mid ass bow#7#
 
                 outFile.close();
                 break;
