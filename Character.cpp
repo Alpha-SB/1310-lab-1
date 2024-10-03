@@ -5,27 +5,34 @@
 using namespace std;
 
 
-   Character::Character() 
-   {
-    name = "";             
-    healthPoints = 0;      
-    attackStat = 0;        
-    speed = 0;             
-    numItems = 0;          
-} 
-   Character::Character(string n, int hp, int as, int s)
+    Character::Character() 
+    {
+        name = "";             
+        healthPoints = 0;      
+        attackStat = 0;        
+        speed = 0;             
+        numItems = 0;          
+    }    
+
+    Character::~Character()
+    {
+        
+    }
+
+    void Character::CreateCharacter(string n, int hp, int as, int s, int i)
     {
         name = n;
         healthPoints = hp;
         attackStat = as;
         speed = s;
-
+        numItems = i;
     } 
     
     string Character::getName() const 
     {
         return name;
     }
+
     void Character::setName(string n)
     {
         name = n;
@@ -35,6 +42,7 @@ using namespace std;
     {
         return healthPoints;
     }
+
     void Character::setHealthPoints(int hp)
     {
         healthPoints = hp;
@@ -44,6 +52,7 @@ using namespace std;
     {
         return attackStat;
     }
+
     void Character::setAttackStat(int as)
     {
         attackStat = as;
@@ -53,6 +62,7 @@ using namespace std;
     {
         return speed;
     }
+
     void Character::setSpeed(int s)
     {
         speed = s;
@@ -64,10 +74,10 @@ using namespace std;
 		return strm;
 	}
 
-    Character Character::setNumItems(string* arrayOfitems)
+    void Character::setNumItems(string* arrayOfitems)
     {
-    int numItems = 3;
-     arrayOfitems = new string[numItems];
+        int numItems = 3;
+        arrayOfitems = new string[numItems];
     }
 
     void Character::printCharacters(Character* selectCharacter)
@@ -80,7 +90,7 @@ using namespace std;
 
     void Character::setArrayOfItems0(string numItems, int i)
     {   //Character IP;
-        arrayOfItems[0] = "computer of doom";    
+        arrayOfItems[0] = "Computer of Doom";    
     }
 
     void Character::setArrayOfItems1(string numItems, int i)
@@ -92,7 +102,7 @@ using namespace std;
     void Character::setArrayOfItems2(string numItems, int i)
     {
         //Character IP;
-        arrayOfItems[2] = "Coder's shoes";
+        arrayOfItems[2] = "Coder's Shoes";
     }
 
    
