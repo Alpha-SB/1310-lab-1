@@ -64,7 +64,6 @@ int main ()
                 
                 //this is the character selection screen
                 cout << "\nName your character: ";
-                cin.ignore();
                 getline(cin,UserName);
                 cout << "\nWhat kind of character would you like to be?" << endl;
                 cout << "\t1: Tank, more HP less attack and slower" << endl;
