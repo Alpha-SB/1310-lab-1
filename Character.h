@@ -32,9 +32,16 @@ class Character
     friend ostream& operator<<(ostream& , Character&);
     void setNumItems(string*);
     void printCharacters(Character*);
+<<<<<<< Updated upstream
     void setArrayOfItems0(string, int);
     void setArrayOfItems1(string numItems, int i);
     void setArrayOfItems2(string, int );
+=======
+    string setArrayOfItems0();
+    string setArrayOfItems1();
+    string setArrayOfItems2();
+    
+>>>>>>> Stashed changes
 };
 
 

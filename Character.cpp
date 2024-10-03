@@ -96,21 +96,70 @@ using namespace std;
         cout << "Speed :    " << selectCharacter->speed << endl;
     }
 
+<<<<<<< Updated upstream
     void Character::setArrayOfItems0(string numItems, int i)
     {   //Character IP;
         arrayOfItems[0] = "Computer of Doom";    
+=======
+    string Character::setArrayOfItems0()
+    {   
+        int num = (rand()%3)+1;
+        
+        switch(num){
+
+            case 1:
+                arrayOfItems[0] = "Computer of lame"; 
+                return arrayOfItems[0];
+            case 2:
+                arrayOfItems[0] = "Mid Computer of mid";
+                return arrayOfItems[0];
+            case 3:
+                arrayOfItems[0] = "Great Computer of doom";
+                return arrayOfItems[0];
+        }    
+>>>>>>> Stashed changes
     }
 
-    void Character::setArrayOfItems1(string numItems, int i)
+    string Character::setArrayOfItems1()
     {
-        //Character IP;
-        arrayOfItems[1] = "Chick-Fil-A Sandwhich";//read it from a file, alloacte read back to a file
+        int num = (rand()%3)+1;
+        
+        switch(num){
+
+            case 1:
+                arrayOfItems[1] = "Deluxe Chick-Fil-A Sandwhich"; 
+                return arrayOfItems[0];
+            case 2:
+                arrayOfItems[1] = "Chick-Fil-A Sandwhich";
+                return arrayOfItems[0];
+            case 3:
+                arrayOfItems[1] = "Coder's shoes";
+                return arrayOfItems[0];
+        }   
     }
 
-    void Character::setArrayOfItems2(string numItems, int i)
+    string Character::setArrayOfItems2()
     {
+<<<<<<< Updated upstream
         //Character IP;
         arrayOfItems[2] = "Coder's Shoes";
+=======
+        
+        int num = (rand()%3)+1;
+        
+        switch(num){
+
+            case 1:
+                arrayOfItems[2] = "computer of doom"; 
+                return arrayOfItems[0];
+            case 2:
+                arrayOfItems[2] = "Chick-Fil-A Sandwhich";
+                return arrayOfItems[0];
+            case 3:
+                arrayOfItems[2] = "Coder's shoes";
+                return arrayOfItems[0];
+        }   
+>>>>>>> Stashed changes
     }
 
    

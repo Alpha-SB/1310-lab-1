@@ -59,10 +59,24 @@ void Interactions::fight(Character Unit[], int BadGuy)
 int Interactions::runGame(int startingPoint, Character Unit[])
 {
     int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3;
+    string itemName;
+    Character c;
     switch (startingPoint)
     {
-        case 1: //where is case 1, 3, and 5?? - chris
+        case 1: 
+            itemName = c.setArrayOfItems0();
+            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find " << itemName;
+            if (itemName[0]=='C'){
+
+            }
+            else if (itemName[1]=='M'){
+
+            }
+            else {
+                
+            }
             
+
             break;
         case 2: 
             Unit[1];
