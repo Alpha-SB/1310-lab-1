@@ -19,8 +19,8 @@ class Character
 
     public:
     Character();
+    Character(string, int, int, int);
     ~Character();
-    void CreateCharacter(string, int, int, int, int);
     string getName() const;
     void setName(string);
     int getHealthPoints() const;
