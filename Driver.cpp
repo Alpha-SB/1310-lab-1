@@ -89,8 +89,7 @@ int main ()
                 Player[3]->CreateCharacter("General Wes", 100, 75, 5, 0);
                 Player[4]->CreateCharacter("King Vandergriff", 150, 75, 5, 0);
                 //this section runs the actual game
-                do 
-                {
+                do {
                     startingPoint = game.runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
@@ -151,10 +150,10 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    game.runGame(startingPoint, *Player);
+                    startingPoint = game.runGame(startingPoint, *Player);
                     if (startingPoint == 0)
                         break;
-                    if (startingPoint == 7)
+                    if (startingPoint == 8)
                         break;
                     
                     cout << "\nWould you like to continue? Yes(1) or No (2)";
@@ -163,7 +162,7 @@ int main ()
                 }   while (choice == 1);
                 if (startingPoint == 0)
                         break;
-                if (startingPoint == 7){
+                if (startingPoint == 8){
                     cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
                     
                     outFile.open(fileName); 
