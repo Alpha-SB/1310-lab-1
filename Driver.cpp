@@ -22,13 +22,14 @@ int main ()
 {
     int choice = 0,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
     bool cont = true; //determines if the program loops again
-    string fileName, UserName, startingPointString; // used to name and locate names of text files and the users character name
+    string fileName, UserName, grabberString; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
     
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
+    Character c; //used to call getter and setter functions from Character.cpp
     Character **PrintC;
     PrintC = Player;
     Interactions* game; //obj to run interactions functions
@@ -152,10 +153,16 @@ int main ()
 
                 //reads in the starting point from the end of the file, without reading in unneed data 
                 inFile.open(fileName);
-                inFile.seekg(-2, ifstream::end);//this gets the starting point
-                getline(inFile, startingPointString, '#'); 
-                if (inFile.good())
-                    startingPoint =  stoi(startingPointString);
+                //this section loads the character from the textfile into the actual character info
+                getline(inFile, UserName, '#');
+                getline(inFile, grabberString, '#');
+                c.setHealthPoints(stoi(grabberString));
+                getline(inFile, grabberString, '#');
+                c.setAttackStat(stoi(grabberString));
+                getline(inFile, grabberString, '#');
+                c.setSpeed(stoi(grabberString));
+                getline(inFile, grabberString, '#'); 
+                startingPoint =  stoi(grabberString);
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
