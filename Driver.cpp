@@ -33,11 +33,11 @@ int main ()
     Character **PrintC;
     PrintC = Player;
     Interactions* game; //obj to run interactions functions
-    game = new Interactions();
+    game = new Interactions(); 
      
 
     //ascii art of game title
-    cout << " _______    __    __  .__   __.    _______  _______     ______     .__   __.       _______      ___         .___  ___.  _______ " << endl;
+    cout << " _______    __    __  .__   __.    _______  _______     ______     .__   __.       _______     ___         .___  ___.  _______ " << endl;
     cout << "|       \\ |  |  |  | |  \\ |  |  /  _____| |   ____|  /  __  \\  |  \\ |  |     /  _____|    /   \\      |   \\/   | |   ____|" << endl;
     cout << "|  .--.  | |  |  |  | |   \\|  | |  |  __   |  |__    |  |  |  |  |   \\|  |    |  |  __     /  ^  \\     |  \\  /  | |  |__   " << endl;
     cout << "|  |  |  | |  |  |  | |  . `   | |  | |_ |  |   __|   |  |  |  |  |  . `   |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
