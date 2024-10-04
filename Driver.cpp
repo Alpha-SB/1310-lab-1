@@ -6,12 +6,12 @@
 */
 
 #include <iostream>
-#include<fstream> //used to read from and write to text files
-#include<string>
-#include<iomanip>
-#include<cctype>
-#include<climits>
-#include"Interactions.h"
+#include <fstream> //used to read from and write to text files
+#include <string>
+#include <iomanip>
+#include <cctype>
+#include <climits>
+#include "Interactions.h"
 #include "Character.h"
 #include "HelperFunctions.cpp"
 #include "Forest.h"
@@ -70,21 +70,28 @@ int main ()
                 cout << "\nWhat kind of character would you like to be?" << endl;
                 cout << "\t1: Tank, more HP less attack and slower" << endl;
                 cout << "\t2. Knight, balance of HP, attack, and speed" << endl;
-                cout << "\t3. glass cannon, less HP, more attack, much faster" << endl;
+                cout << "\t3. glass cannon, less HP, more attack, much faster test" << endl;
                 cin >> CharacterSelect;
 
                 switch (CharacterSelect){
                     case 1:
                         //Character name and other data for each class in each case ;
                         //selectCharacter(UserName, 175, 25, 3); 
+                        cout << "inside case 1";
                         Player[0] = new Character(UserName, 175, 25, 3, 0);
+                        break;
                     case 2:
                         //selectCharacter(UserName, 150, 50, 6);
+                        cout << "inside case 2";
                         Player[0] = new Character(UserName, 175, 50, 6, 0);
+                        break;
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
+                        cout << "inside case 3";
                         Player[0] = new Character(UserName, 125 , 75, 9, 0);
+                        break;
                 }   
+                    cout << "\nSwitch case over\n";
 
                 Player[1] = new Character("Private Joey", 75, 25, 6, 0);
                 Player[2]= new Character("Commander John", 125, 50, 3, 0);
@@ -92,7 +99,11 @@ int main ()
                 Player[4] = new Character("King Vandergriff", 150, 75, 5, 0);
                 //this section runs the actual game
                 do {
+                    //test
+                    cout << "\ninside do while\n";
+                    
                     startingPoint = game->runGame(startingPoint, *Player);
+
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;

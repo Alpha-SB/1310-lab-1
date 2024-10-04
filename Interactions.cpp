@@ -1,6 +1,13 @@
 #include "Interactions.h"
 #include "Character.h"
 
+Interactions::Interactions(){
+    damage = 0;
+    remaninghealth = 1;
+    AttckerName = "Default";
+    ReciverName = "Default";
+}
+
 Interactions::Interactions(int d,int rh,string AN,string RN)
 {
     damage = d;
@@ -8,6 +15,11 @@ Interactions::Interactions(int d,int rh,string AN,string RN)
     AttckerName = AN;
     ReciverName = RN;
 }
+
+Interactions::~Interactions(){
+
+}
+
 void Interactions::makebattlelog()
 {   
     int i;
@@ -164,6 +176,8 @@ void Interactions::fight(Character Unit[], int BadGuy)
 
 int Interactions::runGame(int startingPoint, Character Unit[])
 {
+    //test
+    cout << "inside runGame function: "<< startingPoint <<"\n";
     int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3;
     string itemName;
     Character c;
@@ -171,6 +185,8 @@ int Interactions::runGame(int startingPoint, Character Unit[])
     switch (startingPoint)
     {
         case 1: 
+            //test
+            cout << "\ncase 1 switch rungame\n";
             itemName = c.setArrayOfItems0();
             cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
             if (itemName[0]=='S'){
@@ -220,7 +236,10 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 cout << "\n you are given a 3 point speed stat boost!\n";
             }
             return 5;
+            break;
         case 4: 
+            //test
+            cout << "\ncase 4 rungame\n";
             Unit[2];
             itemName = c.setArrayOfItems1();
             cout << "Your enemy drops the " << itemName;
@@ -237,7 +256,10 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 cout << "\n you are given a 3 point speed stat boost!\n";
             }
             return 5;
+            break;
         case 5: 
+            //test
+            cout << "\ncase 5 rungame\n";
             itemName = c.setArrayOfItems2();
             cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
             if (itemName[0]=='H'){
@@ -253,7 +275,10 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 cout << "\n you are given a 75 point speed stat boost!\n";
             }
             return 7;
+            break;
         case 6: 
+            //test
+            cout << "\ncase 6 rungame\n";
             Unit[3];
             itemName = c.setArrayOfItems2();
             cout << "You enemy drops the " << itemName;
@@ -270,9 +295,13 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 cout << "\n you are given a 75 point speed stat boost!\n";
             }
             return 7;
+            break;
         case 7: 
+            //test
+            cout << "\ncase 7 rungame\n";
             Unit[4];
             return 8;
+            break;
     }
 
     return startingPoint;
