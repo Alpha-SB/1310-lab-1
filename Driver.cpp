@@ -35,7 +35,10 @@ int main ()
     Character **PrintC;
     PrintC = Player;
     Interactions* game; //obj to run interactions functions
-    Forest forest;
+     
+    //myForest = new Forest();
+    game = new Interactions(); 
+    Forest myForest;
 
     //ascii art of game title
     cout << " _______    __    __  .__   __.    _______  _______     ______     .__   __.       _______     ___         .___  ___.  _______ " << endl;
@@ -97,7 +100,7 @@ int main ()
                 //this section runs the actual game
                 do {
 
-                    startingPoint = game->runGame(startingPoint, Player);
+                    startingPoint = game->runGame(startingPoint, *Player);
 
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)

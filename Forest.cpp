@@ -11,7 +11,7 @@ Forest::Forest() : currentRoom("Start Room"), gameOver(false)
     rooms[5] = "Room 5";
     rooms[6] = "Fight Room";
 
-    
+    roomItems = new string*[7];//
 
    /* for (int i = 0; i < 7; ++i) 
     {

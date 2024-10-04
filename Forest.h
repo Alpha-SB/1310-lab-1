@@ -15,7 +15,7 @@ class Forest
         
         string* rooms;        // Room names
         string currentRoom;      // Current room of the player
-    //    string** roomItems;     // Pointer to an array of pointers for items in the rooms//
+        string** roomItems;     // Pointer to an array of pointers for items in the rooms//
         bool gameOver;           // Game state flag
 
     public:
@@ -29,7 +29,7 @@ class Forest
 
     private:
         // Private Helper Methods
-    //    void displayRoomItems();//
+        void displayRoomItems();//
         int getRoomIndex(const string& room);
         void handleStartLine();
         void handleRoom1and2();
