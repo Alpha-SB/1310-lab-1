@@ -6,6 +6,7 @@ int checkInput(int);
 
 int checkInput(int num)
 {
+   
     while(!(cin >> num))
     {
         cout << "Please enter a valid number" << endl;

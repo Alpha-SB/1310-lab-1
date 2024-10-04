@@ -17,7 +17,6 @@ using namespace std;
 
     Character::Character(string n, int hp, int as, int s, int i)
     {
-        cout << "\nIn charcter constructor for: " << n << "\n";
         name = n;
         healthPoints = hp;
         attackStat = as;
@@ -81,7 +80,7 @@ using namespace std;
 
     void Character::setNumItems(string* arrayOfitems)
     {
-        cout << "\nSET NUM ITEMS IS CALLED!!!\n";
+        //cout << "\nSET NUM ITEMS IS CALLED!!!\n";
         int numItems = 3;
         arrayOfitems = new string[numItems];
     }
@@ -96,8 +95,7 @@ using namespace std;
 
     string Character::setArrayOfItems0()
     {   
-        //test
-        cout << "\nsetArrayOfItems0 function\n";
+
         int num = (rand()%3)+1;
         cout << num;
         switch(num){
@@ -110,9 +108,7 @@ using namespace std;
                 return arrayOfItems[0];
                 break;
             case 3:
-                cout << "before assignment\n";
                 arrayOfItems[0] = "Great Sword of DOOM";
-                cout << "\nafter assignment case3: " << arrayOfItems[0] << endl;
                 return arrayOfItems[0];
                 break;
             default:
