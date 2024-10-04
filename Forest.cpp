@@ -10,9 +10,9 @@ Forest::Forest() : currentRoom("Start Room"), gameOver(false)
     rooms[5] = "Room 5";
     rooms[6] = "Fight Room";
 
-    roomItems = new string*[7];
+   // roomItems = new string*[7];//
 
-    for (int i = 0; i < 7; ++i) 
+   /* for (int i = 0; i < 7; ++i) 
     {
         roomItems[i] = new string[2];
     }
@@ -30,29 +30,29 @@ Forest::Forest() : currentRoom("Start Room"), gameOver(false)
     roomItems[5][1] = "Arrows";
 }
 
-Forest::~Forest() 
+/*Forest::~Forest() 
 {
     for (int i = 0; i < 7; ++i) 
     {
         delete roomItems[i];
     }
     delete[] roomItems;
-}
+}*/
 
 void Forest::displayCurrentRoom() 
 {
     cout << "\nYou are currently in " << currentRoom << endl;
-    displayRoomItems();
+    //displayRoomItems();//
 }
 
-void Forest::displayRoomItems() 
+/*void Forest::displayRoomItems() 
 {
     int roomIndex = getRoomIndex(currentRoom);
     if (roomIndex != -1) 
     {
         cout << "Items in this room: " << roomItems[roomIndex][0] << ", " << roomItems[roomIndex][1] << endl;
     }
-}
+}*/
 
 int Forest::getRoomIndex(const string& room) 
 {
