@@ -16,6 +16,8 @@
 #include "HelperFunctions.cpp"
 #include "Forest.h"
 
+
+
 using namespace std;
 
 int main ()
@@ -34,7 +36,7 @@ int main ()
     PrintC = Player;
     Interactions* game; //obj to run interactions functions
     game = new Interactions();
-     
+    Forest forest;
 
     //ascii art of game title
     cout << " _______    __    __  .__   __.    _______  _______     ______     .__   __.       _______      ___         .___  ___.  _______ " << endl;
@@ -96,7 +98,7 @@ int main ()
                 //this section runs the actual game
                 do {
 
-                    startingPoint = game->runGame(startingPoint, *Player);
+                    startingPoint = game->runGame(startingPoint, Player);
 
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)

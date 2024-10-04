@@ -12,7 +12,8 @@ using namespace std;
 class Forest 
 {
     private:
-        string rooms[7];        // Room names
+        
+        string* rooms;        // Room names
         string currentRoom;      // Current room of the player
     //    string** roomItems;     // Pointer to an array of pointers for items in the rooms//
         bool gameOver;           // Game state flag
