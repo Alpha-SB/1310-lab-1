@@ -9,18 +9,20 @@ Interactions::Interactions(int d,int rh,string AN,string RN)
     ReciverName = RN;
 }
 void Interactions::makebattlelog()
-{   int i;
+{   
+    int i;
     battlelog = new string[i];
-
 }
 
 string Interactions::getDamage() const
-{   string i ;
+{   
+    string i ;
     i = damage;
     return i;
 }
 string Interactions::getRH() const
-{   string i;
+{   
+    string i;
     i = remaninghealth;
     return i;
 }
@@ -32,25 +34,25 @@ string Interactions::getRN() const
 {
     return ReciverName;
 }
-string Interactions::PH(Interactions i)
-{   string strm;
+string Interactions::savetolog(Interactions i)
+{   
+    string strm;
     strm = i.getAN(), " hit ", i.getRN(), " for ", i.getDamage(), ", ", i.getRN(), " has ", i.getRH(), " left.";
     return strm;
-
-
 }
 
 string Interactions::log(int s,Interactions *b)
-{   battlelog = new string[s];
+{   
+    battlelog = new string[s];
     for (int i = 0; i < s; i++)
     {
-        battlelog[i] = b->PH(b[i]);
+        battlelog[i] = b->savetolog(b[i]);
     }
 }
 
-
 int Interactions::damagedelt(int attack)
-{   int damagemulti,damage;
+{   
+    int damagemulti,damage;
     damagemulti = (rand() % 3) + 1;
     if (damagemulti == 1)
     {   
@@ -75,21 +77,89 @@ int Interactions::characterremaninghealth(int damage,int health)
 }
 
 void Interactions::fight(Character Unit[], int BadGuy)
-{   int char1speed, Enemyspeed;
-    int char1attack, Enemyattack;
-    int char1hp, Enemyhp;
-    string char1name, Enemyname;
+{   int Playerspeed, Enemyspeed;
+    int Playerattack, Enemyattack;
+    int Playerhp, Enemyhp;
+    int ouch,logcounter=0;
+    string Playername, Enemyname, log;
     Character Player,Enemy;
+    Interactions **battle;
+    Interactions Lholder;
+    battle = new Interactions*[logcounter];
     Player = Unit[0];
     Enemy = Unit[BadGuy];
-    char1name = Player.getName();
-    char1attack = Player.getAttackStat();
-    char1hp = Player.getHealthPoints();
-    char1speed = Player.getSpeed();
+    Playername = Player.getName();
+    Playerattack = Player.getAttackStat();
+    Playerhp = Player.getHealthPoints();
+    Playerspeed = Player.getSpeed();
     Enemyname = Enemy.getName();
     Enemyattack = Enemy.getAttackStat();
     Enemyhp = Enemy.getHealthPoints();
     Enemyspeed = Enemy.getSpeed();
+     if(Playerspeed > Enemyspeed)
+    {   
+        cout << endl << Playername << " outsped " << Enemyname << " and was able to attack first." << endl; 
+        
+        do
+        {
+            ouch = damagedelt(Playerattack);
+            Enemyhp = characterremaninghealth(ouch,Enemyhp);
+            battle[logcounter]= new Interactions(ouch,Enemyhp,Playername,Enemyname);
+            logcounter++;
+            cout << Playername << " inflicted " << ouch << " damage to " << Enemyname << ", " << Enemyname << " has " << Enemyhp << " hp left." << endl;
+            if (Enemyhp <=0)
+            {
+                cout << Playername << " absolutly wreked " << Enemyname << "freakin ez sauce gg." << endl;
+                Lholder.log(logcounter,*battle);
+                break;
+            }
+            ouch = damagedelt(Enemyattack);
+            Playerhp = characterremaninghealth(ouch,Playerhp);
+            battle[logcounter]= new Interactions(ouch,Playerhp,Playername,Enemyname);
+            logcounter++;
+            cout << Enemyhp << " inflicted " << ouch << " damage to " << Playername << ", " << Playername << " has " << Playerhp << " hp left." << endl;
+            if(Playerhp <= 0)
+            {
+                cout << Playername << " got freakin merked bro, by " << Enemyname << " get good bro." << endl;
+                Lholder.log(logcounter,*battle);
+                break;
+            }
+            //insert interacti0ns pointer log to save the battle in a string log
+        } while (Playerhp > 0 && Enemyhp > 0);
+    }
+
+
+    
+    if(Enemyspeed > Playerspeed) 
+    {
+        cout << endl << Enemyname << " outsped " << Playername << " and was able to attack first." << endl; 
+        do
+        {
+            ouch = damagedelt(Enemyattack);
+            Playerhp = characterremaninghealth(ouch,Playerhp);
+            battle[logcounter] = new Interactions(ouch,Playerhp,Playername,Enemyname);
+            logcounter++;
+            cout << Enemyname << " inflicted " << ouch << " damage to " << Playername << ", " << Playername << " has " << Playerhp << " hp left." << endl;
+            if(Playerhp <= 0)
+            {
+                cout << Playername << " got freakin merked bro, by " << Enemyname << " get good bro." << endl;
+                Lholder.log(logcounter,*battle);
+                break;
+            }
+            ouch = damagedelt(Playerattack);
+            Enemyhp = characterremaninghealth(ouch,Enemyhp);
+            battle[logcounter] = new Interactions(ouch,Enemyhp,Playername,Enemyname);
+            logcounter++;
+            cout << Playername << " inflicted " << ouch << " damage to " << Enemyname << ", " << Enemyname << " has " << Enemyhp << " hp left." << endl;
+            if (Enemyhp <=0)
+            {
+                cout << Playername << " absolutly wreked " << Enemyname << "freakin ez sauce gg." << endl;
+                Lholder.log(logcounter,*battle);
+                break;
+            }
+            //insert interacti0ns pointer log to save the battle in a string log 
+        } while (Playerhp > 0 && Enemyhp > 0);
+    }
 }
 
 int Interactions::runGame(int startingPoint, Character Unit[])
@@ -207,22 +277,3 @@ int Interactions::runGame(int startingPoint, Character Unit[])
 
     return startingPoint;
 }
-
-// int Interactions::damagedelt(int attack)
-// {   
-//     int damagemulti,damage;
-//     damagemulti = (rand() % 3) + 1;
-//     if (damagemulti == 1)
-//     {   
-//         damage = attack * 0.75;
-//     }
-//     if (damagemulti == 2)
-//     {   
-//         damage = attack;
-//     }
-//     if (damagemulti == 3)
-//     {   
-//         damage = attack * 1.25;
-//     }
-//     return damage;
-// }

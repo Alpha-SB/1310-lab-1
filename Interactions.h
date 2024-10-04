@@ -32,7 +32,7 @@ class Interactions
         string getAN() const;
         string getRN() const;
         void savelogtofile(fstream,string);
-        string PH(Interactions);
+        string savetolog(Interactions);
         /* during a fight add each cout of x did x damage to x and x has x hp left
         to the string array battlelog then after the fight call a function that
         is a for loop that prints every element of the array into a txt file. */
