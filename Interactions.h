@@ -19,25 +19,21 @@ class Interactions
         string AttckerName, ReciverName;
         string* battlelog;
     public:
-        Interactions();
-        Interactions(int,int,string,string);
-        ~Interactions();
-        void makebattlelog();
-        int damagedelt(int);
-        int characterremaninghealth(int,int);
-        void fight(Character,int);
-        string log(int,Interactions*);
+        Interactions();//defualt constructor
+        Interactions(int,int,string,string);//overloaded constructor
+        ~Interactions();//destructor
+        void makebattlelog();//creates array from pointer. 
+        int damagedelt(int);//function to calculate damage
+        int characterremaninghealth(int,int);//function to calculate remanining hp
+        void fight(Character*,int);//function to have player and enemy fight
+        string log(int,Interactions*);//saves battle statements to the battlelog array. 
         string getDamage() const;
         string getRH() const;
         string getAN() const;
         string getRN() const;
-        void savelogtofile(fstream,string);
-        string savetolog(Interactions);
-        /* during a fight add each cout of x did x damage to x and x has x hp left
-        to the string array battlelog then after the fight call a function that
-        is a for loop that prints every element of the array into a txt file. */
-        void fight(Character*, int);
-        int runGame(int, Character*);
+        void savelogtofile(fstream,string);//save the battle log to a file
+        string savetolog(Interactions);//saves statement from fight to a string to be stored in the log. 
+        int runGame(int, Character*);//runs the game and directs where the player goes. 
 };
 
 #endif
