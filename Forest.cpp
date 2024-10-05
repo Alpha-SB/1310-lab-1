@@ -117,13 +117,13 @@ int Forest::rungame(int startingPoint, Character **Unit)
             }
             roomchoice = 5;
             break;
-       /* case 4: 
+        case 4: 
             Fightoutcome = i->fight(*Unit,Enemy2);
             if (Fightoutcome = true)
             {
-                itemName[1] = c.setArrayOfItems1();
+                itemName[1] = c->setArrayOfItems1();
                 cout << "Your enemy drops the " << itemName[1];
-                c.setHealthPoints(c.getHealthPoints()+100);
+                c->setHealthPoints(c->getHealthPoints()+100);
                 cout << "\n you recover 100 HP with the lords chiken!\n";
                 roomchoice = handleRoom3();
             }
@@ -134,18 +134,18 @@ int Forest::rungame(int startingPoint, Character **Unit)
             break;
         case 5: 
 
-            itemName[2] = c.setArrayOfItems2();
+            itemName[2] = c->setArrayOfItems2();
             cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName[2];
             if (itemName[2]==roomItems[4][0]){
-                c.setSpeed(c.getSpeed()+1);
+                c->setSpeed(c->getSpeed()+1);
                 cout << "\n you are given a 1 point speed stat boost!\n";
             }
             else if (itemName[2]==roomItems[4][1]){
-                c.setSpeed(c.getSpeed()+2);
+                c->setSpeed(c->getSpeed()+2);
                 cout << "\n you are given a 3 point speed stat boost!\n";
             }
             else {
-                c.setSpeed(c.getSpeed()+3);
+                c->setSpeed(c->getSpeed()+3);
                 cout << "\n you are given a 3 point speed stat boost!\n";
             }
             roomchoice = 7;
@@ -154,9 +154,9 @@ int Forest::rungame(int startingPoint, Character **Unit)
             Fightoutcome = i->fight(*Unit,Enemy3);
             if (Fightoutcome = true)
             {
-            itemName[2] = c.setArrayOfItems22();
+            itemName[2] = c->setArrayOfItems22();
             cout << "Your enemy drops the " << itemName[2];
-            c.setSpeed(c.getSpeed()+5);
+            c->setSpeed(c->getSpeed()+5);
             cout << "\n you are given a 5 point speed stat boost!\n";
  
                 roomchoice = 7;
@@ -178,7 +178,7 @@ int Forest::rungame(int startingPoint, Character **Unit)
                 roomchoice = 0;
             }
 
-            break;*/
+            break;
     }
 
     return roomchoice;

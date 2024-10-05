@@ -159,7 +159,7 @@ int main()
                     if (inFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
-                    choice = I.checkInput(choice);
+                    choice = I->checkInput(choice);
                     if (choice != 1)
                         break;
                 }
