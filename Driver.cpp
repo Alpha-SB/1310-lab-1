@@ -67,20 +67,20 @@ int main ()
                 for (int i = 0; i < fileName.length(); i++)  //replaces spaces with underscore
                     if (fileName[i] == ' ')
                         fileName[i] = '_';
-                
+                cin.ignore();
+                cin.ignore();
                 //this is the character selection screen
                 cout << "\nName your character: ";
                 getline(cin,UserName);
                 cout << "\nWhat kind of character would you like to be?" << endl;
                 cout << "\t1: Tank, more HP less attack and slower" << endl;
                 cout << "\t2. Knight, balance of HP, attack, and speed" << endl;
-                cout << "\t3. glass cannon, less HP, more attack, much faster test" << endl;
+                cout << "\t3. Rouge, less HP, more attack, much faster test" << endl;
                 cin >> CharacterSelect;
 
                 switch (CharacterSelect){
                     case 1:
                         //Character name and other data for each class in each case ;
-                        //selectCharacter(UserName, 175, 25, 3); 
                         Player[0] = new Character(UserName, 175, 25, 3, 0);
                         break;
                     case 2:
@@ -94,14 +94,14 @@ int main ()
                 }   
 
                 Player[1] = new Character("Private Joey", 75, 20, 2, 0);
-                Player[2]= new Character("Commander John", 100, 40, 4, 0);
+                Player[2] = new Character("Commander John", 100, 40, 4, 0);
                 Player[3] = new Character("General Wes", 125, 60, 6, 0);
                 Player[4] = new Character("King Vandergriff", 200, 75, 9, 0);
                 //this section runs the actual game
                 do {
 
                     startingPoint = F.runGame(startingPoint, *Player);
-                    //myForest.startGame();
+                    
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;

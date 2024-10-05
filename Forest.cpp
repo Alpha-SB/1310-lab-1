@@ -37,7 +37,7 @@ int Forest::handleStartLine()
 {
     int userchoice;
     do
-    {
+    {   
         cout << "You see two paths before you, one left the other right. Unknown what lies beyond but you must choose one." << endl;
         cout << "1: to go left and get jeffed." << endl;
         cout << "2: to go right and prove your might." << endl;
@@ -81,6 +81,7 @@ int Forest::runGame(int startingPoint, Character Unit[])
     switch (startingPoint)
     {
         case 1: 
+            cin.ignore();
             roomchoice = f.handleStartLine();            
             
             break;
