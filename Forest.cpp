@@ -2,9 +2,11 @@
 
 Forest::Forest()
 {
-    int i;
+    
+    
     roomItems = new string*[numrooms];
     roomItems[numrooms] = new string[numItems];
+    
     roomItems[1][0]= "Great Sword of DOOM";
     roomItems[2][0]= "Sword of lame";
     roomItems[2][2]= "Great Sword of DOOM";
@@ -20,12 +22,12 @@ Forest::Forest()
 
 Forest::~Forest() 
 {
-    delete [] roomItems;
+    delete [] roomItems; //free dynamically allocated memory
 }
 
 string Forest::getroomItem(int i,int j)
 {
-    return roomItems[i][j];
+    return roomItems[i][j]; //retrieve item from specific room
 }
 
 
@@ -42,9 +44,9 @@ int Forest::handleStartLine()
         if(userchoice != 1 && userchoice != 2)
             cout <<"\nThere is no secret third option, the only choices are the ones in front of you." << endl;
     }
-    while (userchoice != 1 && userchoice != 2);
+    while (userchoice != 1 && userchoice != 2); //ensure valid
    
-    return userchoice+1;
+    return userchoice+1; // change room number based on choice
 }
 
 
@@ -61,16 +63,16 @@ int Forest::handleRoom3()
         if(userchoice != 1 && userchoice != 2)
             cout <<"\nWhat are you doing. You should have learned from the first time." << endl;
     }
-    while (userchoice != 1 && userchoice != 2);
+    while (userchoice != 1 && userchoice != 2); //ensure valid choice
   
-    return userchoice+4;
+    return userchoice+4;  // adjust room number
 }
 
 
 int Forest::rungame(int startingPoint, Character *Unit)
-{   bool Fightoutcome = false;
+{   bool Fightoutcome = false; // outcome of the fight
     int roomchoice;
-    int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3,Boss = 4;
+    int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3,Boss = 4; // Enemy id
     string itemName[3];
     Character c;
     Forest f;
@@ -80,22 +82,22 @@ int Forest::rungame(int startingPoint, Character *Unit)
     {
         case 1: 
             cin.ignore();
-            roomchoice = f.handleStartLine();            
+            roomchoice = f.handleStartLine();       // first room     
             
             break;
         case 2: 
-            Fightoutcome = i.fight(Unit,Enemy1);
+            Fightoutcome = i.fight(Unit,Enemy1);  // fight 1
             if (Fightoutcome = true)
             {
                 itemName[0] = c.setArrayOfItems00();
                 cout << "Your enemy drops the " << itemName[0];
-                c.setAttackStat(c.getAttackStat()+30);
+                c.setAttackStat(c.getAttackStat()+30); // attack boots
                 cout << "\n you are given a 30 point attact stat boost!\n";
                 roomchoice = 4;
             }
             if (Fightoutcome = false)
             {
-                roomchoice = 0;
+                roomchoice = 0; // user loses the fight
             }
             
             break;
@@ -117,12 +119,12 @@ int Forest::rungame(int startingPoint, Character *Unit)
             roomchoice = 5;
             break;
         case 4: 
-            Fightoutcome = i.fight(Unit,Enemy2);
+            Fightoutcome = i.fight(Unit,Enemy2); // fight 2
             if (Fightoutcome = true)
             {
                 itemName[1] = c.setArrayOfItems1();
                 cout << "Your enemy drops the " << itemName[1];
-                c.setHealthPoints(c.getHealthPoints()+100);
+                c.setHealthPoints(c.getHealthPoints()+100); //more health
                 cout << "\n you recover 100 HP with the lords chiken!\n";
                 roomchoice = f.handleRoom3();
             }
