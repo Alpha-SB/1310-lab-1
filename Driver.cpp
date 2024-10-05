@@ -24,7 +24,7 @@ int main ()
     string fileName, UserName, grabberString; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
-    
+    Interactions I;
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
@@ -51,7 +51,7 @@ int main ()
         cout << "|START NEW GAME|\t|START LOAD GAME|\t|DELETE SAVE|\t|QUIT PROGRAM|\n";
 
         int choice;
-        choice = checkInput(choice);
+        choice = I.checkInput(choice);
         
         switch (choice){
             case 1:
@@ -109,7 +109,7 @@ int main ()
                     cin.ignore();
                     cin >> choice;
                     
-                    choice = checkInput(choice); 
+                    choice = I.checkInput(choice); 
 
                 }   while (choice == 1);
                 //breaks if character dies (0) or character beats the game (8)
@@ -153,7 +153,7 @@ int main ()
                     if (inFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
-                    choice = checkInput(choice);
+                    choice = I.checkInput(choice);
                     if (choice != 1)
                         break;
                 }
@@ -184,7 +184,7 @@ int main ()
                     
                     cout << "\nWould you like to continue? Yes(1) or No (2)\n";
                     cin >> choice;
-                    choice = checkInput(choice);
+                    choice = I.checkInput(choice);
                 }   while (choice == 1);
                 //breaks if character dies (0) or character beats the game (8)
                 if (startingPoint == 0){
@@ -227,7 +227,7 @@ int main ()
                     if (outFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
-                    choice = checkInput(choice);
+                    choice = I.checkInput(choice);
                     if (choice != 1)
                         break;
                 }
