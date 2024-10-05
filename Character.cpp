@@ -97,7 +97,6 @@ using namespace std;
     {   
 
         int num = (rand()%3)+1;
-        cout << num;
         switch(num){
             case 1:
                 arrayOfItems[0] = "Sword of lame"; 
@@ -111,28 +110,20 @@ using namespace std;
                 arrayOfItems[0] = "Great Sword of DOOM";
                 return arrayOfItems[0];
                 break;
-            default:
-                cout << "\nnum was: " << num << endl;
-                break;
         }    
+    }
+
+    string Character::setArrayOfItems00()
+    {
+        arrayOfItems[0] = "Great Sword of DOOM";
+        return arrayOfItems[0];
+
     }
 
     string Character::setArrayOfItems1()
     {
-        int num = (rand()%3)+1;
-        
-        switch(num){
-
-            case 1:
-                arrayOfItems[1] = "Walmart slides de Coder"; 
-                return arrayOfItems[1];
-            case 2:
-                arrayOfItems[1] = "Nikes de Coder";
-                return arrayOfItems[1];
-            case 3:
-                arrayOfItems[1] = "Jordans de Coder";
-                return arrayOfItems[1];
-        }   
+                arrayOfItems[1] = "Deluxe Chick-Fil-A Sandwhich";
+                return arrayOfItems[1]; 
     }
 
     string Character::setArrayOfItems2()
@@ -143,15 +134,22 @@ using namespace std;
         switch(num){
 
             case 1:
-                arrayOfItems[2] = "Hardees chicken slider";
+                arrayOfItems[2] = "Walmart slides de Coder";
                 return arrayOfItems[2];
             case 2:
-                arrayOfItems[2] = "Chick-Fil-A Sandwhich";
+                arrayOfItems[2] = "Adidas slides de Coder";
                 return arrayOfItems[2];
             case 3:
-                arrayOfItems[2] = "Deluxe Chick-Fil-A Sandwhich"; 
+                arrayOfItems[2] = "Gucci slides de Coder"; 
                 return arrayOfItems[2];
         }   
+    }
+
+    string Character::setArrayOfItems22()
+    {
+        arrayOfItems[2] = "Gucci slides de Coder"; 
+        return arrayOfItems[2];
+
     }
 
    

@@ -13,7 +13,6 @@
 #include <climits>
 #include "Interactions.h"
 #include "Character.h"
-#include "HelperFunctions.cpp"
 #include "Forest.h"
 
 using namespace std;
@@ -83,18 +82,18 @@ int main ()
                         break;
                     case 2:
                         //selectCharacter(UserName, 150, 50, 6);
-                        Player[0] = new Character(UserName, 175, 50, 6, 0);
+                        Player[0] = new Character(UserName, 150, 50, 5, 0);
                         break;
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
-                        Player[0] = new Character(UserName, 125 , 75, 9, 0);
+                        Player[0] = new Character(UserName, 125 , 75, 7, 0);
                         break;
                 }   
 
-                Player[1] = new Character("Private Joey", 75, 25, 6, 0);
-                Player[2]= new Character("Commander John", 125, 50, 3, 0);
-                Player[3] = new Character("General Wes", 100, 75, 5, 0);
-                Player[4] = new Character("King Vandergriff", 150, 75, 5, 0);
+                Player[1] = new Character("Private Joey", 75, 20, 2, 0);
+                Player[2]= new Character("Commander John", 100, 40, 4, 0);
+                Player[3] = new Character("General Wes", 125, 60, 6, 0);
+                Player[4] = new Character("King Vandergriff", 200, 75, 9, 0);
                 //this section runs the actual game
                 do {
 
@@ -246,21 +245,13 @@ int main ()
     }while (choice == 4);
     
     cout << "\nThanks for playing...\n";
-    cout << " _______   __    __  .__   __.   _______  _______   ______   .__   __.      _______      ___      .___  ___.  _______ " << endl;
-    cout << "|       \\ |  |  |  | |  \\ |  |  /  _____||   ____| /  __  \\  |  \\ |  |     /  _____|    /   \\     |   \\/   | |   ____|" << endl;
-    cout << "|  .--.  ||  |  |  | |   \\|  | |  |  __  |  |__   |  |  |  | |   \\|  |    |  |  __     /  ^  \\    |  \\  /  | |  |__   " << endl;
-    cout << "|  |  |  ||  |  |  | |  . `  | |  | |_ | |   __|  |  |  |  | |  . `  |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
-    cout << "|  '--'  ||  `--'  | |  |\\   | |  |__| | |  |____ |  `--'  | |  |\\   |    |  |__| |  /  _____  \\  |  |  |  | |  |____ " << endl;
-    cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/  |__| \\__|     \\______| /__/     \\__\\ |__|  |__| |_______|" << endl;
+    cout << " _______    __    __  .__    __.   _______   _______    ______    .__    __.      _______      ___        .___   ___.  _______ " << endl;
+    cout << "|       \\ |  |  |  | |  \\ |  |  /  _____| |   ____|  /  __  \\  |  \\ |  |     /  _____|    /   \\      |   \\/   | |   ____|" << endl;
+    cout << "|  .--.  | |  |  |  | |   \\|  | |  |  __   |  |__    |  |  |  |  |   \\|  |    |  |  __     /  ^  \\     |  \\  /  | |  |__   " << endl;
+    cout << "|  |  |  | |  |  |  | |  . `   | |  | |_ |  |   __|   |  |  |  |  |  . `   |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
+    cout << "|  '--'  | |  `--'  | |  |\\   | |  |__| |  |  |____  |  `--'  |  |  |\\   |    |  |__| |  /  _____  \\   |  |   |  | |  |____ " << endl;
+    cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|" << endl;
                 
 
     return 0;
-
-
-/*
-    string **RoomN;
-    RoomN = new string*[5];
-    RoomN[1] = new string[5]; 
-    RoomN[1][5];             //////What is this for? - Chris 
-    */
 }

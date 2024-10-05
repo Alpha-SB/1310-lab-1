@@ -25,7 +25,7 @@ class Interactions
         void makebattlelog();//creates array from pointer. 
         int damagedelt(int);//function to calculate damage
         int characterremaninghealth(int,int);//function to calculate remanining hp
-        void fight(Character*,int);//function to have player and enemy fight
+        bool fight(Character*,int);//function to have player and enemy fight
         string log(int,Interactions*);//saves battle statements to the battlelog array. 
         string getDamage() const;
         string getRH() const;

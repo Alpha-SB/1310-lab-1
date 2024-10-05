@@ -93,60 +93,52 @@ void Forest::startGame()
     }
 }
 
-void Forest::handleStartLine() 
+int Forest::handleStartLine() 
 {
-    int input;
+    int userchoice;
     do
     {
-        displayCurrentRoom();
-        cout << "What would you like to do?" << endl;
-        cout << "1: to Go to Room 1" << endl;
-        cout << "2: to Go to Room 2" << endl;
-        cin >> input;
+        cout << "You see two paths before you, one left the other right. Unknown what lies beyond but you must choose one." << endl;
+        cout << "1: to go left and get jeffed." << endl;
+        cout << "2: to go right and prove your might." << endl;
+        cin >> userchoice;
+        if(userchoice != 1 && userchoice != 2)
+            cout <<"\nThere is no secret third option, the only choices are the ones in front of you." << endl;
     }
-    while (input != 1 && input != 2);
-    currentRoom = rooms[input];
+    while (userchoice != 1 && userchoice != 2);
+    currentRoom = rooms[userchoice];
+    return userchoice;
 }
 
-void Forest::handleRoom1and2() 
-{
-    int input;
-    do
-    {
-        displayCurrentRoom();
-        cout << "What would you like to do?" << endl;
-        cout << "3: to Go to Room 3" << endl;
-        cin >> input;
-    }
-    while (input != 3);
-    currentRoom = rooms[input];
-}
 
-void Forest::handleRoom3() 
+int Forest::handleRoom3() 
 {
-    int input;
+    int userchoice;
     do
     {
-        displayCurrentRoom();
-        cout << "What would you like to do?" << endl;
-        cout << "4: to Go to Room 4" << endl;
-        cout << "5: to Go to Room 5" << endl;
-        cin >> input;
+        cout << "You see two paths before you, one left the other right. Unknown what lies beyond but you must choose one." << endl;
+        cout << "You can't be sure if you are going in circles or not."
+        cout << "1: go left and commit a theft!" << endl;
+        cout << "2: go right and become a Knight!" << endl;
+        cin >> userchoice;
+        if(userchoice != 1 && userchoice != 2)
+            cout <<"\nWhat are you doing. You should have learned from the first time." << endl;
     }
-    while (input != 4 && input != 5);
-    currentRoom = rooms[input];
+    while (userchoice != 1 && userchoice != 3);
+    currentRoom = rooms[userchoice+3];
+    return userchoice+4;
 }
 
 void Forest::handleRoom4and5() 
 {
-    int input;
+    int userchoice;
     do
     {
         displayCurrentRoom();
         cout << "Enter 6 to go to the Boss Fight" << endl;
-        cin >> input;
+        cin >> userchoice;
     }
-    while (input != 6);
+    while (userchoice != 6);
     currentRoom = "Fight Room";
 }
 

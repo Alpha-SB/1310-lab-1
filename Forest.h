@@ -26,13 +26,12 @@ class Forest
         void displayCurrentRoom();
         void startGame();
 
-    private:
+    //private:
         // Private Helper Methods
         void displayRoomItems();//
         int getRoomIndex(const string& room);
-        void handleStartLine();
-        void handleRoom1and2();
-        void handleRoom3();
+        int handleStartLine();
+        int handleRoom3();
         void handleRoom4and5();
         void handleFightRoom();
 };
