@@ -91,7 +91,7 @@ int Interactions::characterremaninghealth(int damage,int health)
     return HPleft;
 }
 
-bool Interactions::fight(Character Unit[], int BadGuy)
+bool Interactions::fight(Character *Unit, int BadGuy)
 {   int Playerspeed, Enemyspeed, Playerattack, Enemyattack, Playerhp, Enemyhp, ouch, logcounter=0;
     bool WinLose = false;
     string Playername, Enemyname, log;
