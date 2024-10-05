@@ -19,9 +19,9 @@
 
 using namespace std;
 
-int main ()
+int main()
 {
-    int choice = 0,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
+    int choice =1,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
     bool cont = true; //determines if the program loops again
     string fileName, UserName, grabberString; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
@@ -40,21 +40,21 @@ int main ()
      
 
     //ascii art of game title
-    cout << 
-    R"( 
-    _______     __    __  .__   __.    _______   _______    ______    .__    __.      _______      ___        .___   ___.  _______ 
+
+    cout <<R"( 
+    _______     __    __  .__    __.   _______   _______    ______    .__    __.      _______      ___        .___   ___.  _______ 
     |       \\ |  |  |  | |  \\ |  |  /  _____| |   ____|  /  __  \\  |  \\ |  |     /  _____|    /   \\      |   \\/   | |   ____|
     |  .--.  | |  |  |  | |   \\|  | |  |  __   |  |__    |  |  |  |  |   \\|  |    |  |  __     /  ^  \\     |  \\  /  | |  |__   
     |  |  |  | |  |  |  | |  . `   | |  | |_ |  |   __|   |  |  |  |  |  . `   |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  
     |  '--'  | |  `--'  | |  |\\   | |  |__| |  |  |____  |  `--'  |  |  |\\   |    |  |__| |  /  _____  \\   |  |   |  | |  |____ 
-    |_______/  \\______/  |__| \\__|  \\______| |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|)" << endl;
+    |_______/  \\______/  |__| \\__| \\______|  |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|)" << endl;
                 
     do{
         
         cout << "\n\n\nselect option:\n(1)\t|START NEW GAME|\n(2)\t|START LOAD GAME|\n(3)\t|DELETE SAVE|\n(any other number)\t|QUIT PROGRAM|";
 
-        int choice;
-        choice = I.checkInput(choice);
+        //cin >> choice;
+        //choice = I.checkInput(choice);
         
         switch (choice){
             case 1:
@@ -100,7 +100,7 @@ int main ()
                 //this section runs the actual game
                 do {
 
-                    startingPoint = F.runGame(startingPoint, *Player);
+                    startingPoint = F.rungame(startingPoint, *Player);
                     
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
@@ -178,7 +178,7 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = F.runGame(startingPoint, *Player);
+                    startingPoint = F.rungame(startingPoint, *Player);
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;

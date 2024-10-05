@@ -1,12 +1,9 @@
 #include "Forest.h"
 
- 
-   
-
 Forest::Forest()
 {
     int i;
-    
+    roomItems = new string*[numrooms];
     roomItems[numrooms] = new string[numItems];
     roomItems[1][0]= "Great Sword of DOOM";
     roomItems[2][0]= "Sword of lame";
@@ -17,7 +14,7 @@ Forest::Forest()
     roomItems[4][1]= "Adidas slides de Coder";
     roomItems[4][0]= "Walmart slides de Coder";
     roomItems[2][1]= "Mid Sword of mid";
-    roomItems = new string*[numrooms];
+    
 }
 
 
@@ -69,7 +66,8 @@ int Forest::handleRoom3()
     return userchoice+4;
 }
 
-int Forest::runGame(int startingPoint, Character Unit[])
+
+int Forest::rungame(int startingPoint, Character *Unit)
 {   bool Fightoutcome = false;
     int roomchoice;
     int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3,Boss = 4;
