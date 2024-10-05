@@ -53,8 +53,8 @@ int main()
         
         cout << "\n\n\nselect option:\n(1)\t|START NEW GAME|\n(2)\t|START LOAD GAME|\n(3)\t|DELETE SAVE|\n(any other number)\t|QUIT PROGRAM|";
 
-        //cin >> choice;
-        //choice = I.checkInput(choice);
+        cin >> choice;
+        choice = I.checkInput(choice);
         
         switch (choice){
             case 1:
