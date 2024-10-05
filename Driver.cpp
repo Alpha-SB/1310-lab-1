@@ -24,18 +24,19 @@ int main()
     int choice =1,startingPoint = 1, CharacterSelect; //these numbers are used for user input choices and sets the starting point
     bool cont = true; //determines if the program loops again
     string fileName, UserName, grabberString; // used to name and locate names of text files and the users character name
+   
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
-    Interactions I;
+    Interactions *I;
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
     Character c; //used to call getter and setter functions from Character.cpp
     Character **PrintC;
     PrintC = Player;
-    Forest* game; //obj to run interactions functions
-    game = new Forest(); 
-    Forest F;
+  //  Forest* game; //obj to run interactions functions
+  //  game = new Forest(); 
+    Forest *F;
    
      
 
@@ -48,18 +49,18 @@ int main()
     |  |  |  | |  |  |  | |  . `   | |  | |_ |  |   __|   |  |  |  |  |  . `   |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  
     |  '--'  | |  `--'  | |  |\\   | |  |__| |  |  |____  |  `--'  |  |  |\\   |    |  |__| |  /  _____  \\   |  |   |  | |  |____ 
     |_______/  \\______/  |__| \\__| \\______|  |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|)" << endl;
-                
-    do{
+              
+   do{
         
-        cout << "\n\n\nselect option:\n(1)\t|START NEW GAME|\n(2)\t|START LOAD GAME|\n(3)\t|DELETE SAVE|\n(any other number)\t|QUIT PROGRAM|";
-
+        cout << "\n\n\nselect option:\n(1)\t|START NEW GAME|\n(2)\t|START LOAD GAME|\n(3)\t|DELETE SAVE|\n(any other number)\t|QUIT PROGRAM|\n";
+        
         cin >> choice;
-        choice = I.checkInput(choice);
+       // choice = I.checkInput(choice);
         
         switch (choice){
             case 1:
 
-                choice = 1;
+                
 
                 cout << "Name New Save File: (Ex. File_Name.txt)\n";
                 cin >> fileName;
@@ -67,7 +68,7 @@ int main()
                 for (int i = 0; i < fileName.length(); i++)  //replaces spaces with underscore
                     if (fileName[i] == ' ')
                         fileName[i] = '_';
-                cin.ignore();
+            
                 cin.ignore();
                 //this is the character selection screen
                 cout << "\nName your character: ";
@@ -77,7 +78,7 @@ int main()
                 cout << "\t2. Knight, balance of HP, attack, and speed" << endl;
                 cout << "\t3. Rouge, less HP, more attack, much faster test" << endl;
                 cin >> CharacterSelect;
-
+           
                 switch (CharacterSelect){
                     case 1:
                         //Character name and other data for each class in each case ;
@@ -92,7 +93,7 @@ int main()
                         Player[0] = new Character(UserName, 125 , 75, 7, 0);
                         break;
                 }   
-
+            
                 Player[1] = new Character("Private Joey", 75, 20, 2, 0);
                 Player[2] = new Character("Commander John", 100, 40, 4, 0);
                 Player[3] = new Character("General Wes", 125, 60, 6, 0);
@@ -100,7 +101,7 @@ int main()
                 //this section runs the actual game
                 do {
 
-                    startingPoint = F.rungame(startingPoint, *Player);
+                    startingPoint = F->rungame(startingPoint, Player);
                     
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
@@ -108,13 +109,14 @@ int main()
                     if (startingPoint == 8)
                         break;
                     
+                
                     cout << "\nWould you like to continue? Yes(1) or No (2)\n";
-                    cin.ignore();
+                    
                     cin >> choice;
                     
-                    choice = I.checkInput(choice); 
-
-                }   while (choice == 1);
+                    //choice = I.checkInput(choice); 
+                    cout << choice;
+                }   while (choice !=2);
                 //breaks if character dies (0) or character beats the game (8)
                 if (startingPoint == 0){
                     cout << "Sorry you couldn't beat the game...see you next time, " << UserName << ". Your Save file will be deleted." << endl;
@@ -132,7 +134,7 @@ int main()
                     outFile.close();
                     break;
                 }
-
+            
                 outFile.open(fileName, ios::app); //opens save text file
 
                 outFile << *(Player[0]);
@@ -145,7 +147,8 @@ int main()
 
                 inFile.close();
                 break;
-
+               
+                
             case 2:
                 choice = 1;
 
@@ -178,7 +181,7 @@ int main()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = F.rungame(startingPoint, *Player);
+                    startingPoint = F->rungame(startingPoint, Player);
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
@@ -187,7 +190,7 @@ int main()
                     
                     cout << "\nWould you like to continue? Yes(1) or No (2)\n";
                     cin >> choice;
-                    choice = I.checkInput(choice);
+                    choice = I->checkInput(choice);
                 }   while (choice == 1);
                 //breaks if character dies (0) or character beats the game (8)
                 if (startingPoint == 0){
@@ -230,7 +233,7 @@ int main()
                     if (outFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
-                    choice = I.checkInput(choice);
+                    choice = I->checkInput(choice);
                     if (choice != 1)
                         break;
                 }
@@ -256,9 +259,10 @@ int main()
     |  |  |  | |  |  |  | |  . `   | |  | |_ |  |   __|   |  |  |  |  |  . `   |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  
     |  '--'  | |  `--'  | |  |\\   | |  |__| |  |  |____  |  `--'  |  |  |\\   |    |  |__| |  /  _____  \\   |  |   |  | |  |____ 
     |_______/  \\______/  |__| \\__|  \\______| |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|)" << endl;
-                
+    /*            
     delete [] Player;
     delete [] PrintC;
     delete [] game;
+    */
     return 0;
 }
