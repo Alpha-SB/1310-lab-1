@@ -1,20 +1,32 @@
 #include "Forest.h"
 
-Forest::Forest() :
-{
-   
+Forest::Forest()
+{  
+    int i;
+    roomItems = new string*[numrooms];
+    roomItems[numrooms] = new string[numItems];
+    
+    roomItems[1][0]= "Great Sword of DOOM";
+    roomItems[2][0]= "Sword of lame";
+    roomItems[2][1]= "Mid Sword of mid";
+    roomItems[2][2]= "Great Sword of DOOM";
+    roomItems[3][0]= "Deluxe Chick-Fil-A Sandwhich";
+    roomItems[4][0]= "Walmart slides de Coder";
+    roomItems[4][1]= "Adidas slides de Coder";
+    roomItems[4][2]= "Gucci slides de Coder";
+    roomItems[5][0]= "Gucci slides de Coder";
+ 
 }
 
-/*Forest::~Forest() 
+Forest::~Forest() 
 {
-    for (int i = 0; i < 7; ++i) 
-    {
-        delete roomItems[i];
-    }
-    delete[] roomItems;
-}*/
+    delete [] roomItems;
+}
 
-
+string Forest::getroomItem(int i,int j)
+{
+    return roomItems[i][j];
+}
 
 
 

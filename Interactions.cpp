@@ -60,7 +60,7 @@ string Interactions::log(int s,Interactions *b)
     battlelog = new string[s];
     for (int i = 0; i < s; i++)
     {
-        battlelog[i] = b->savetolog(b[i]);
+        battlelog[i] = savetolog(b[i]);
     }
 }
 

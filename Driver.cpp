@@ -31,10 +31,10 @@ int main ()
     Character c; //used to call getter and setter functions from Character.cpp
     Character **PrintC;
     PrintC = Player;
-    Interactions* game; //obj to run interactions functions
-    game = new Interactions(); 
-    Forest myForest;
-    //myForest = new Forest();
+    Forest* game; //obj to create forest names;
+    game = new Forest(); 
+    Forest F;
+    
      
 
     //ascii art of game title
@@ -97,7 +97,7 @@ int main ()
                 //this section runs the actual game
                 do {
 
-                    startingPoint = I.runGame(startingPoint, *Player);
+                    startingPoint = F.runGame(startingPoint, *Player);
                     //myForest.startGame();
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
@@ -175,7 +175,7 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = game->runGame(startingPoint, *Player);
+                    startingPoint = F.runGame(startingPoint, *Player);
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
@@ -252,6 +252,8 @@ int main ()
     cout << "|  '--'  | |  `--'  | |  |\\   | |  |__| |  |  |____  |  `--'  |  |  |\\   |    |  |__| |  /  _____  \\   |  |   |  | |  |____ " << endl;
     cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|" << endl;
                 
-
+    delete [] Player;
+    delete [] PrintC;
+    delete [] game;
     return 0;
 }

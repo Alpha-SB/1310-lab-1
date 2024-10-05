@@ -22,11 +22,9 @@
 
     Character::~Character()
     {
-        
+        delete [] arrayOfItems;
     }
 
-   
-    
     string Character::getName() const 
     {
         return name;
@@ -90,19 +88,19 @@
 
     string Character::setArrayOfItems0()
     {   
-
+        Forest f;
         int num = (rand()%3)+1;
         switch(num){
             case 1:
-                arrayOfItems[0] = "Sword of lame"; 
+                arrayOfItems[0] = f.getroomItem(2,0); 
                 return arrayOfItems[0];
                 break;
             case 2:
-                arrayOfItems[0] = "Mid Sword of mid";
+                arrayOfItems[0] = f.getroomItem(2,1);
                 return arrayOfItems[0];
                 break;
             case 3:
-                arrayOfItems[0] = "Great Sword of DOOM";
+                arrayOfItems[0] = f.getroomItem(2,2);
                 return arrayOfItems[0];
                 break;
         }    
@@ -110,41 +108,42 @@
 
     string Character::setArrayOfItems00()
     {
-        arrayOfItems[0] = "Great Sword of DOOM";
+        Forest f;
+        arrayOfItems[0] = f.getroomItem(1,0);
         return arrayOfItems[0];
-
     }
 
     string Character::setArrayOfItems1()
     {
-                arrayOfItems[1] = "Deluxe Chick-Fil-A Sandwhich";
-                return arrayOfItems[1]; 
+        Forest f;
+        arrayOfItems[1] = f.getroomItem(3,0);
+        return arrayOfItems[1]; 
     }
 
     string Character::setArrayOfItems2()
     {
-        
+        Forest f;
         int num = (rand()%3)+1;
         
         switch(num){
 
             case 1:
-                arrayOfItems[2] = "Walmart slides de Coder";
+                arrayOfItems[2] = f.getroomItem(4,0);
                 return arrayOfItems[2];
             case 2:
-                arrayOfItems[2] = "Adidas slides de Coder";
+                arrayOfItems[2] = f.getroomItem(4,1);
                 return arrayOfItems[2];
             case 3:
-                arrayOfItems[2] = "Gucci slides de Coder"; 
+                arrayOfItems[2] = f.getroomItem(4,2); 
                 return arrayOfItems[2];
         }   
     }
 
     string Character::setArrayOfItems22()
     {
-        arrayOfItems[2] = "Gucci slides de Coder"; 
+        Forest f;
+        arrayOfItems[2] = f.getroomItem(5,0); 
         return arrayOfItems[2];
-
     }
 
    
