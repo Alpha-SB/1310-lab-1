@@ -33,10 +33,10 @@ int main ()
     Character c; //used to call getter and setter functions from Character.cpp
     Character **PrintC;
     PrintC = Player;
-    Interactions* game; //obj to run interactions functions
-    game = new Interactions(); 
-    Forest myForest;
-    //myForest = new Forest();
+    Forest* game; //obj to run interactions functions
+    game = new Forest(); 
+    Forest F;
+   
      
 
     //ascii art of game title
