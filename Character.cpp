@@ -1,5 +1,5 @@
-#include "Character.h"
-
+#include "Character.h" // needed for functions
+   //Default Construcor
    Character::Character() 
    {
     name = "";             
@@ -9,7 +9,7 @@
     numItems = 0;    
     arrayOfItems = new string[3];      
     } 
-
+    //Constructor
     Character::Character(string n, int hp, int as, int s, int i)
     {
         name = n;
@@ -19,12 +19,12 @@
         numItems = i;   
         arrayOfItems = new string[3];       
     }    
-
+    //Destrucor
     Character::~Character()
     {
         delete [] arrayOfItems;
     }
-
+    //line 28 through 72 is to access private variables
     string Character::getName() const 
     {
         return name;
@@ -85,7 +85,7 @@
         cout << "Hit Points:  " << selectCharacter->attackStat << endl;
         cout << "Speed :    " << selectCharacter->speed << endl;
     }
-
+    // Used for randomly generated attack item
     string Character::setArrayOfItems0()
     {   
         Forest f;
@@ -106,21 +106,21 @@
         }    
         return arrayOfItems[0];
     }
-
+    //Recived item in room 1
     string Character::setArrayOfItems00()
     {
         Forest f;
         arrayOfItems[0] = f.getroomItem(1,0);
         return arrayOfItems[0];
     }
-
+    //Recived item in room2
     string Character::setArrayOfItems1()
     {
         Forest f;
         arrayOfItems[1] = f.getroomItem(3,0);
         return arrayOfItems[1]; 
     }
-
+    //Used for randomly generated speed item
     string Character::setArrayOfItems2()
     {
         Forest f;
