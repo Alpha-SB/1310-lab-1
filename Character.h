@@ -1,5 +1,10 @@
-#include <iostream>
-#include <iomanip>
+#include<iostream>
+#include<fstream> 
+#include<string>
+#include<iomanip>
+#include<cctype>
+#include<climits>
+#include "Forest.h"
 
 #ifndef Character_H
 #define Character_H

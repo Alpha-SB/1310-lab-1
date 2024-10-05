@@ -97,7 +97,7 @@ int main ()
                 //this section runs the actual game
                 do {
 
-                    startingPoint = game->runGame(startingPoint, *Player);
+                    startingPoint = I.runGame(startingPoint, *Player);
                     myForest.startGame();
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
@@ -114,7 +114,7 @@ int main ()
                 }   while (choice == 1);
                 //breaks if character dies (0) or character beats the game (8)
                 if (startingPoint == 0){
-                    cout << "Sorry you couldn't beat the game...see you next time, " << UserName << endl;
+                    cout << "Sorry you couldn't beat the game...see you next time, " << UserName << ". Your Save file will be deleted." << endl;
                     //clears file
                     outFile.open(fileName); 
                     outFile << ""; 
@@ -122,7 +122,7 @@ int main ()
                     break;
                 }
                 if (startingPoint == 8){
-                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
+                    cout << "Congrats you beat the game!! see you next time, " << UserName << ". Your Save file will be deleted." << endl;
                     //clears file
                     outFile.open(fileName); 
                     outFile << ""; 
