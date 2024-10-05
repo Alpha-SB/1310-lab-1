@@ -174,7 +174,7 @@ bool Interactions::fight(Character Unit[], int BadGuy)
             //insert interactions pointer log to save the battle in a string log 
         } while (Playerhp > 0 && Enemyhp > 0);
     }
-    return WinLose
+    return WinLose;
 }
 
 int Interactions::runGame(int startingPoint, Character Unit[])
@@ -190,7 +190,8 @@ int Interactions::runGame(int startingPoint, Character Unit[])
     {
         case 1: 
             roomchoice = f.handleStartLine();            
-            return roomchoice+1;
+            
+            break;
         case 2: 
             Fightoutcome = fight(Unit,Enemy1);
             if (Fightoutcome = true)
@@ -205,7 +206,8 @@ int Interactions::runGame(int startingPoint, Character Unit[])
             {
                 roomchoice = 0;
             }
-            return roomchoice;
+            
+            break;
         case 3: 
             itemName = c.setArrayOfItems0();
             cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
@@ -221,7 +223,7 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 c.setAttackStat(c.getAttackStat()+30);
                 cout << "\n you are given a 30 point attact stat boost!\n";
             }
-            return 5;
+            roomchoice = 5;
             break;
         case 4: 
             Fightoutcome = fight(Unit,Enemy2);
@@ -237,7 +239,7 @@ int Interactions::runGame(int startingPoint, Character Unit[])
             {
                 roomchoice = 0;
             }
-            return roomchoice;
+            break;
         case 5: 
 
             itemName = c.setArrayOfItems2();
@@ -254,7 +256,7 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 c.setSpeed(c.getSpeed()+3);
                 cout << "\n you are given a 3 point speed stat boost!\n";
             }
-            return 7;
+            roomchoice = 7;
             break;
         case 6: 
             Fightoutcome = fight(Unit,Enemy3);
@@ -272,7 +274,6 @@ int Interactions::runGame(int startingPoint, Character Unit[])
                 roomchoice = 0;
             }
        
-            return roomchoice;
             break;
         case 7: 
             Fightoutcome = fight(Unit,Boss);
@@ -284,8 +285,7 @@ int Interactions::runGame(int startingPoint, Character Unit[])
             {
                 roomchoice = 0;
             }
-            
-            return roomchoice;
+
             break;
     }
 

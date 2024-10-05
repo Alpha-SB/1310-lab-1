@@ -107,7 +107,7 @@ int Forest::handleStartLine()
     }
     while (userchoice != 1 && userchoice != 2);
     currentRoom = rooms[userchoice];
-    return userchoice;
+    return userchoice+1;
 }
 
 
