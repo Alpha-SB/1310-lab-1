@@ -55,13 +55,14 @@ string Interactions::savetolog(Interactions i)
     return strm;
 }
 
-string Interactions::log(int s,Interactions *b)
+void Interactions::log(int s,Interactions *b)
 {   
     battlelog = new string[s];
     for (int i = 0; i < s; i++)
     {
         battlelog[i] = savetolog(b[i]);
     }
+    
 }
 
 int Interactions::damagedelt(int attack)
