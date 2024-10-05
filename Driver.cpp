@@ -98,7 +98,7 @@ int main ()
                 do {
 
                     startingPoint = I.runGame(startingPoint, *Player);
-                    myForest.startGame();
+                    //myForest.startGame();
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;

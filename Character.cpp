@@ -1,10 +1,5 @@
 #include "Character.h"
 
-#include<iomanip>
-
-using namespace std;
-
-
    Character::Character() 
    {
     name = "";             

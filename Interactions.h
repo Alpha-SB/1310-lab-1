@@ -9,6 +9,7 @@
 #include<cctype>
 #include<climits>
 #include"Character.h"
+#include"Forest.h"
 using namespace std;
 
 class Interactions
@@ -33,7 +34,6 @@ class Interactions
         string getRN() const;
         void savelogtofile(fstream,string);//save the battle log to a file
         string savetolog(Interactions);//saves statement from fight to a string to be stored in the log. 
-        int runGame(int, Character*);//runs the game and directs where the player goes. 
         int checkInput(int);//checks user inputed a int value.
 };
 
