@@ -73,7 +73,7 @@ int Forest::runGame(int startingPoint, Character Unit[])
 {   bool Fightoutcome = false;
     int roomchoice;
     int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3,Boss = 4;
-    string itemName;
+    string itemName[3];
     Character c;
     Forest f;
     Interactions i;
@@ -88,8 +88,8 @@ int Forest::runGame(int startingPoint, Character Unit[])
             Fightoutcome = i.fight(Unit,Enemy1);
             if (Fightoutcome = true)
             {
-                itemName = c.setArrayOfItems00();
-                cout << "Your enemy drops the " << itemName;
+                itemName[0] = c.setArrayOfItems00();
+                cout << "Your enemy drops the " << itemName[0];
                 c.setAttackStat(c.getAttackStat()+30);
                 cout << "\n you are given a 30 point attact stat boost!\n";
                 roomchoice = 4;
@@ -101,13 +101,13 @@ int Forest::runGame(int startingPoint, Character Unit[])
             
             break;
         case 3: 
-            itemName = c.setArrayOfItems0();
-            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
-            if (itemName[0]=='Walmart slides de Coder'){
+            itemName[0] = c.setArrayOfItems0();
+            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName[0];
+            if (itemName[0]==roomItems[2][0]){
                 c.setAttackStat(c.getAttackStat()+10);
                 cout << "\n you are given a 10 point attact stat boost!\n";
             }
-            else if (itemName[0]=='Nikes de Coder'){
+            else if (itemName[0]==roomItems[2][1]){
                 c.setAttackStat(c.getAttackStat()+20);
                 cout << "\n you are given a 20 point attact stat boost!\n";
             }
@@ -121,8 +121,8 @@ int Forest::runGame(int startingPoint, Character Unit[])
             Fightoutcome = i.fight(Unit,Enemy2);
             if (Fightoutcome = true)
             {
-                itemName = c.setArrayOfItems1();
-                cout << "Your enemy drops the " << itemName;
+                itemName[1] = c.setArrayOfItems1();
+                cout << "Your enemy drops the " << itemName[1];
                 c.setHealthPoints(c.getHealthPoints()+100);
                 cout << "\n you recover 100 HP with the lords chiken!\n";
                 roomchoice = f.handleRoom3();
@@ -134,13 +134,13 @@ int Forest::runGame(int startingPoint, Character Unit[])
             break;
         case 5: 
 
-            itemName = c.setArrayOfItems2();
-            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
-            if (itemName[0]=='Walmart slides de Coder'){
+            itemName[2] = c.setArrayOfItems2();
+            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName[2];
+            if (itemName[2]==roomItems[4][0]){
                 c.setSpeed(c.getSpeed()+1);
                 cout << "\n you are given a 1 point speed stat boost!\n";
             }
-            else if (itemName[0]=='Nikes de Coder'){
+            else if (itemName[2]==roomItems[4][1]){
                 c.setSpeed(c.getSpeed()+2);
                 cout << "\n you are given a 3 point speed stat boost!\n";
             }
@@ -154,8 +154,8 @@ int Forest::runGame(int startingPoint, Character Unit[])
             Fightoutcome = i.fight(Unit,Enemy3);
             if (Fightoutcome = true)
             {
-            itemName = c.setArrayOfItems22();
-            cout << "Your enemy drops the " << itemName;
+            itemName[2] = c.setArrayOfItems22();
+            cout << "Your enemy drops the " << itemName[2];
             c.setSpeed(c.getSpeed()+5);
             cout << "\n you are given a 5 point speed stat boost!\n";
  

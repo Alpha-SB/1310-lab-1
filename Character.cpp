@@ -93,17 +93,18 @@
         switch(num){
             case 1:
                 arrayOfItems[0] = f.getroomItem(2,0); 
-                return arrayOfItems[0];
+                
                 break;
             case 2:
                 arrayOfItems[0] = f.getroomItem(2,1);
-                return arrayOfItems[0];
+                
                 break;
             case 3:
                 arrayOfItems[0] = f.getroomItem(2,2);
-                return arrayOfItems[0];
+                
                 break;
         }    
+        return arrayOfItems[0];
     }
 
     string Character::setArrayOfItems00()
@@ -129,14 +130,15 @@
 
             case 1:
                 arrayOfItems[2] = f.getroomItem(4,0);
-                return arrayOfItems[2];
+                break;
             case 2:
                 arrayOfItems[2] = f.getroomItem(4,1);
-                return arrayOfItems[2];
+                break;
             case 3:
                 arrayOfItems[2] = f.getroomItem(4,2); 
-                return arrayOfItems[2];
+                break;
         }   
+        return arrayOfItems[2];
     }
 
     string Character::setArrayOfItems22()
