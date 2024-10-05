@@ -14,6 +14,7 @@ using namespace std;
 class Character
 {
     private:
+    //Variable
     string name;
     int healthPoints;
     int attackStat;
@@ -23,6 +24,7 @@ class Character
     
 
     public:
+    //Function Prototypes
     Character();
     Character(string, int, int, int, int);
     ~Character();
