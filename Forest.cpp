@@ -1,159 +1,183 @@
 #include "Forest.h"
 
-Forest::Forest() : currentRoom("Start Room"), gameOver(false)
-{
-    rooms = new string[7];
-    rooms[0] = "Start Room";
-    rooms[1] = "Room 1";
-    rooms[2] = "Room 2";
-    rooms[3] = "Room 3";
-    rooms[4] = "Room 4";
-    rooms[5] = "Room 5";
-    rooms[6] = "Fight Room";
-
-    roomItems = new string*[7];
-
-    for (int i = 0; i < 7; ++i) 
-    {
-        roomItems[i] = new string[2];
-    }
-
-    roomItems[1][0] = "Map";
-    roomItems[1][1] = "Key";
-
-    roomItems[2][0] = "Sword";
-    roomItems[2][1] = "Shield";
-
-    roomItems[4][0] = "Healing Potion";
-    roomItems[4][1] = "Armor";
-
-    roomItems[5][0] = "Bow";
-    roomItems[5][1] = "Arrows";
+ 
+    roomItems[5][0]= "Gucci slides de Coder";
+    roomItems[4][2]= "Gucci slides de Coder";
+    roomItems[4][1]= "Adidas slides de Coder";
+    roomItems[4][0]= "Walmart slides de Coder";
+    roomItems[2][1]= "Mid Sword of mid";
+    roomItems = new string*[numrooms];
+{  
+Forest::Forest()
+    int i;
+    
+    roomItems[numrooms] = new string[numItems];
+    roomItems[1][0]= "Great Sword of DOOM";
+    roomItems[2][0]= "Sword of lame";
+    roomItems[2][2]= "Great Sword of DOOM";
+    roomItems[3][0]= "Deluxe Chick-Fil-A Sandwhich";
 }
 
 Forest::~Forest() 
 {
-    for (int i = 0; i < 7; ++i) 
-    {
-        delete roomItems[i];
-    }
-    delete[] roomItems;
+    delete [] roomItems;
 }
 
-void Forest::displayCurrentRoom() 
+string Forest::getroomItem(int i,int j)
 {
-    cout << "\nYou are currently in " << currentRoom << endl;
-    displayRoomItems();
+    return roomItems[i][j];
 }
 
-void Forest::displayRoomItems() 
-{
-    int roomIndex = getRoomIndex(currentRoom);
-    if (roomIndex != -1) 
-    {
-        cout << "Items in this room: " << roomItems[roomIndex][0] << ", " << roomItems[roomIndex][1] << endl;
-    }
-}
 
-int Forest::getRoomIndex(const string& room) 
-{
-    for (int i = 0; i < 7; ++i) 
-    {
-        if (rooms[i] == room) 
-        {
-            return i;
-        }
-    }
-    return -1;  // Room not found
-}
 
-void Forest::startGame() 
+int Forest::handleStartLine() 
 {
-    while (!gameOver) 
-    {
-        if (currentRoom == "Start Room") 
-        {
-            handleStartLine();
-        } 
-        else if (currentRoom == "Room 1" || currentRoom == "Room 2") 
-        {
-            handleRoom1and2();
-        } 
-        else if (currentRoom == "Room 3") 
-        {
-            handleRoom3();
-        } 
-        else if (currentRoom == "Room 4" || currentRoom == "Room 5") 
-        {
-            handleRoom4and5();
-        } 
-        else if (currentRoom == "Fight Room") 
-        {
-            handleFightRoom();
-        }
-    }
-}
-
-void Forest::handleStartLine() 
-{
-    int input;
+    int userchoice;
     do
     {
-        displayCurrentRoom();
-        cout << "What would you like to do?" << endl;
-        cout << "1: to Go to Room 1" << endl;
-        cout << "2: to Go to Room 2" << endl;
-        cin >> input;
+        cout << "You see two paths before you, one left the other right. Unknown what lies beyond but you must choose one." << endl;
+        cout << "1: to go left and get jeffed." << endl;
+        cout << "2: to go right and prove your might." << endl;
+        cin >> userchoice;
+        if(userchoice != 1 && userchoice != 2)
+            cout <<"\nThere is no secret third option, the only choices are the ones in front of you." << endl;
     }
-    while (input != 1 && input != 2);
-    currentRoom = rooms[input];
+    while (userchoice != 1 && userchoice != 2);
+   
+    return userchoice+1;
 }
 
-void Forest::handleRoom1and2() 
+
+int Forest::handleRoom3() 
 {
-    int input;
+    int userchoice;
     do
     {
-        displayCurrentRoom();
-        cout << "What would you like to do?" << endl;
-        cout << "3: to Go to Room 3" << endl;
-        cin >> input;
+        cout << "You see two paths before you, one left the other right. Unknown what lies beyond but you must choose one." << endl;
+        cout << "You can't be sure if you are going in circles or not." << endl;
+        cout << "1: go left and commit a theft!" << endl;
+        cout << "2: go right and become a Knight!" << endl;
+        cin >> userchoice;
+        if(userchoice != 1 && userchoice != 2)
+            cout <<"\nWhat are you doing. You should have learned from the first time." << endl;
     }
-    while (input != 3);
-    currentRoom = rooms[input];
+    while (userchoice != 1 && userchoice != 2);
+  
+    return userchoice+4;
 }
 
-void Forest::handleRoom3() 
-{
-    int input;
-    do
+int Forest::runGame(int startingPoint, Character Unit[])
+{   bool Fightoutcome = false;
+    int roomchoice;
+    int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3,Boss = 4;
+    string itemName;
+    Character c;
+    Forest f;
+    Interactions i;
+
+    switch (startingPoint)
     {
-        displayCurrentRoom();
-        cout << "What would you like to do?" << endl;
-        cout << "4: to Go to Room 4" << endl;
-        cout << "5: to Go to Room 5" << endl;
-        cin >> input;
+        case 1: 
+            roomchoice = f.handleStartLine();            
+            
+            break;
+        case 2: 
+            Fightoutcome = i.fight(Unit,Enemy1);
+            if (Fightoutcome = true)
+            {
+                itemName = c.setArrayOfItems00();
+                cout << "Your enemy drops the " << itemName;
+                c.setAttackStat(c.getAttackStat()+30);
+                cout << "\n you are given a 30 point attact stat boost!\n";
+                roomchoice = 4;
+            }
+            if (Fightoutcome = false)
+            {
+                roomchoice = 0;
+            }
+            
+            break;
+        case 3: 
+            itemName = c.setArrayOfItems0();
+            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
+            if (itemName[0]=='Walmart slides de Coder'){
+                c.setAttackStat(c.getAttackStat()+10);
+                cout << "\n you are given a 10 point attact stat boost!\n";
+            }
+            else if (itemName[0]=='Nikes de Coder'){
+                c.setAttackStat(c.getAttackStat()+20);
+                cout << "\n you are given a 20 point attact stat boost!\n";
+            }
+            else {
+                c.setAttackStat(c.getAttackStat()+30);
+                cout << "\n you are given a 30 point attact stat boost!\n";
+            }
+            roomchoice = 5;
+            break;
+        case 4: 
+            Fightoutcome = i.fight(Unit,Enemy2);
+            if (Fightoutcome = true)
+            {
+                itemName = c.setArrayOfItems1();
+                cout << "Your enemy drops the " << itemName;
+                c.setHealthPoints(c.getHealthPoints()+100);
+                cout << "\n you recover 100 HP with the lords chiken!\n";
+                roomchoice = f.handleRoom3();
+            }
+            if (Fightoutcome = false)
+            {
+                roomchoice = 0;
+            }
+            break;
+        case 5: 
+
+            itemName = c.setArrayOfItems2();
+            cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName;
+            if (itemName[0]=='Walmart slides de Coder'){
+                c.setSpeed(c.getSpeed()+1);
+                cout << "\n you are given a 1 point speed stat boost!\n";
+            }
+            else if (itemName[0]=='Nikes de Coder'){
+                c.setSpeed(c.getSpeed()+2);
+                cout << "\n you are given a 3 point speed stat boost!\n";
+            }
+            else {
+                c.setSpeed(c.getSpeed()+3);
+                cout << "\n you are given a 3 point speed stat boost!\n";
+            }
+            roomchoice = 7;
+            break;
+        case 6: 
+            Fightoutcome = i.fight(Unit,Enemy3);
+            if (Fightoutcome = true)
+            {
+            itemName = c.setArrayOfItems22();
+            cout << "Your enemy drops the " << itemName;
+            c.setSpeed(c.getSpeed()+5);
+            cout << "\n you are given a 5 point speed stat boost!\n";
+ 
+                roomchoice = 7;
+            }
+            if (Fightoutcome = false)
+            {
+                roomchoice = 0;
+            }
+       
+            break;
+        case 7: 
+            Fightoutcome = i.fight(Unit,Boss);
+            if (Fightoutcome = true)
+            {
+                roomchoice = 8;
+            }
+            if (Fightoutcome = false)
+            {
+                roomchoice = 0;
+            }
+
+            break;
     }
-    while (input != 4 && input != 5);
-    currentRoom = rooms[input];
+
+    return roomchoice;
 }
 
-void Forest::handleRoom4and5() 
-{
-    int input;
-    do
-    {
-        displayCurrentRoom();
-        cout << "Enter 6 to go to the Boss Fight" << endl;
-        cin >> input;
-    }
-    while (input != 6);
-    currentRoom = "Fight Room";
-}
-
-void Forest::handleFightRoom() 
-{
-    displayCurrentRoom();
-    cout << "You have reached the end of the game!" << endl;
-    gameOver = true;
-}

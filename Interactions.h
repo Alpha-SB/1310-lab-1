@@ -9,6 +9,7 @@
 #include<cctype>
 #include<climits>
 #include"Character.h"
+#include"Forest.h"
 using namespace std;
 
 class Interactions
@@ -25,7 +26,7 @@ class Interactions
         void makebattlelog();//creates array from pointer. 
         int damagedelt(int);//function to calculate damage
         int characterremaninghealth(int,int);//function to calculate remanining hp
-        void fight(Character*,int);//function to have player and enemy fight
+        bool fight(Character*,int);//function to have player and enemy fight
         string log(int,Interactions*);//saves battle statements to the battlelog array. 
         string getDamage() const;
         string getRH() const;
@@ -33,7 +34,7 @@ class Interactions
         string getRN() const;
         void savelogtofile(fstream,string);//save the battle log to a file
         string savetolog(Interactions);//saves statement from fight to a string to be stored in the log. 
-        int runGame(int, Character*);//runs the game and directs where the player goes. 
+        int checkInput(int);//checks user inputed a int value.
 };
 
 #endif

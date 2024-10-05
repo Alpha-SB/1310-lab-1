@@ -13,7 +13,6 @@
 #include <climits>
 #include "Interactions.h"
 #include "Character.h"
-#include "HelperFunctions.cpp"
 #include "Forest.h"
 
 
@@ -27,7 +26,7 @@ int main ()
     string fileName, UserName, grabberString; // used to name and locate names of text files and the users character name
     ifstream inFile; // used to read from text files
     ofstream outFile; // used to write to text files
-    
+    Interactions I;
     Character **Player;
     const int maxCharacters = 5;
     Player = new Character*[maxCharacters];
@@ -35,10 +34,10 @@ int main ()
     Character **PrintC;
     PrintC = Player;
     Interactions* game; //obj to run interactions functions
-     
-    //myForest = new Forest();
     game = new Interactions(); 
     Forest myForest;
+    //myForest = new Forest();
+     
 
     //ascii art of game title
     cout << " _______    __    __  .__   __.    _______  _______     ______     .__   __.       _______     ___         .___  ___.  _______ " << endl;
@@ -54,7 +53,7 @@ int main ()
         cout << "|START NEW GAME|\t|START LOAD GAME|\t|DELETE SAVE|\t|QUIT PROGRAM|\n";
 
         int choice;
-        choice = checkInput(choice);
+        choice = I.checkInput(choice);
         
         switch (choice){
             case 1:
@@ -85,23 +84,23 @@ int main ()
                         break;
                     case 2:
                         //selectCharacter(UserName, 150, 50, 6);
-                        Player[0] = new Character(UserName, 175, 50, 6, 0);
+                        Player[0] = new Character(UserName, 150, 50, 5, 0);
                         break;
                     case 3:
                         //selectCharacter(UserName, 125, 75, 9);
-                        Player[0] = new Character(UserName, 125 , 75, 9, 0);
+                        Player[0] = new Character(UserName, 125 , 75, 7, 0);
                         break;
                 }   
 
-                Player[1] = new Character("Private Joey", 75, 25, 6, 0);
-                Player[2]= new Character("Commander John", 125, 50, 3, 0);
-                Player[3] = new Character("General Wes", 100, 75, 5, 0);
-                Player[4] = new Character("King Vandergriff", 150, 75, 5, 0);
+                Player[1] = new Character("Private Joey", 75, 20, 2, 0);
+                Player[2]= new Character("Commander John", 100, 40, 4, 0);
+                Player[3] = new Character("General Wes", 125, 60, 6, 0);
+                Player[4] = new Character("King Vandergriff", 200, 75, 9, 0);
                 //this section runs the actual game
                 do {
 
-                    startingPoint = game->runGame(startingPoint, *Player);
-
+                    startingPoint = F.runGame(startingPoint, *Player);
+                    //myForest.startGame();
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
@@ -112,12 +111,12 @@ int main ()
                     cin.ignore();
                     cin >> choice;
                     
-                    choice = checkInput(choice); 
+                    choice = I.checkInput(choice); 
 
                 }   while (choice == 1);
                 //breaks if character dies (0) or character beats the game (8)
                 if (startingPoint == 0){
-                    cout << "Sorry you couldn't beat the game...see you next time, " << UserName << endl;
+                    cout << "Sorry you couldn't beat the game...see you next time, " << UserName << ". Your Save file will be deleted." << endl;
                     //clears file
                     outFile.open(fileName); 
                     outFile << ""; 
@@ -125,7 +124,7 @@ int main ()
                     break;
                 }
                 if (startingPoint == 8){
-                    cout << "Congrats you beat the game!! see you next time, " << UserName << endl;
+                    cout << "Congrats you beat the game!! see you next time, " << UserName << ". Your Save file will be deleted." << endl;
                     //clears file
                     outFile.open(fileName); 
                     outFile << ""; 
@@ -156,7 +155,7 @@ int main ()
                     if (inFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
-                    choice = checkInput(choice);
+                    choice = I.checkInput(choice);
                     if (choice != 1)
                         break;
                 }
@@ -178,7 +177,7 @@ int main ()
                 inFile.close();
                 //this section runs the actual game, assuming it has been opened
                 do {
-                    startingPoint = game->runGame(startingPoint, *Player);
+                    startingPoint = F.runGame(startingPoint, *Player);
                     //breaks if character dies (0) or character beats the game (8)
                     if (startingPoint == 0)
                         break;
@@ -187,7 +186,7 @@ int main ()
                     
                     cout << "\nWould you like to continue? Yes(1) or No (2)\n";
                     cin >> choice;
-                    choice = checkInput(choice);
+                    choice = I.checkInput(choice);
                 }   while (choice == 1);
                 //breaks if character dies (0) or character beats the game (8)
                 if (startingPoint == 0){
@@ -230,7 +229,7 @@ int main ()
                     if (outFile.is_open())
                         break;
                     cout << "\nNo file with that name exists. Try again? Yes(1) or No (2)\n";
-                    choice = checkInput(choice);
+                    choice = I.checkInput(choice);
                     if (choice != 1)
                         break;
                 }
@@ -248,21 +247,15 @@ int main ()
     }while (choice == 4);
     
     cout << "\nThanks for playing...\n";
-    cout << " _______   __    __  .__   __.   _______  _______   ______   .__   __.      _______      ___      .___  ___.  _______ " << endl;
-    cout << "|       \\ |  |  |  | |  \\ |  |  /  _____||   ____| /  __  \\  |  \\ |  |     /  _____|    /   \\     |   \\/   | |   ____|" << endl;
-    cout << "|  .--.  ||  |  |  | |   \\|  | |  |  __  |  |__   |  |  |  | |   \\|  |    |  |  __     /  ^  \\    |  \\  /  | |  |__   " << endl;
-    cout << "|  |  |  ||  |  |  | |  . `  | |  | |_ | |   __|  |  |  |  | |  . `  |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
-    cout << "|  '--'  ||  `--'  | |  |\\   | |  |__| | |  |____ |  `--'  | |  |\\   |    |  |__| |  /  _____  \\  |  |  |  | |  |____ " << endl;
-    cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/  |__| \\__|     \\______| /__/     \\__\\ |__|  |__| |_______|" << endl;
+    cout << " _______    __    __  .__    __.   _______   _______    ______    .__    __.      _______      ___        .___   ___.  _______ " << endl;
+    cout << "|       \\ |  |  |  | |  \\ |  |  /  _____| |   ____|  /  __  \\  |  \\ |  |     /  _____|    /   \\      |   \\/   | |   ____|" << endl;
+    cout << "|  .--.  | |  |  |  | |   \\|  | |  |  __   |  |__    |  |  |  |  |   \\|  |    |  |  __     /  ^  \\     |  \\  /  | |  |__   " << endl;
+    cout << "|  |  |  | |  |  |  | |  . `   | |  | |_ |  |   __|   |  |  |  |  |  . `   |    |  | |_ |   /  /_\\  \\   |  |\\/|  | |   __|  " << endl;
+    cout << "|  '--'  | |  `--'  | |  |\\   | |  |__| |  |  |____  |  `--'  |  |  |\\   |    |  |__| |  /  _____  \\   |  |   |  | |  |____ " << endl;
+    cout << "|_______/  \\______/  |__| \\__|  \\______| |_______| \\______/   |__| \\__|    \\______| /__/     \\__\\ |__|   |__| |_______|" << endl;
                 
-
+    delete [] Player;
+    delete [] PrintC;
+    delete [] game;
     return 0;
-
-
-/*
-    string **RoomN;
-    RoomN = new string*[5];
-    RoomN[1] = new string[5]; 
-    RoomN[1][5];             //////What is this for? - Chris 
-    */
 }
