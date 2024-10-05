@@ -1,4 +1,6 @@
 #include "Character.h"
+#include "Forest.h"
+#include "Interactions.h"
 
    Character::Character() 
    {
@@ -88,19 +90,19 @@
 
     string Character::setArrayOfItems0()
     {   
-        Forest f;
+        Forest *f;
         int num = (rand()%3)+1;
         switch(num){
             case 1:
-                arrayOfItems[0] = f.getroomItem(2,0); 
+                arrayOfItems[0] = f->getroomItem(2,0); 
                 
                 break;
             case 2:
-                arrayOfItems[0] = f.getroomItem(2,1);
+                arrayOfItems[0] = f->getroomItem(2,1);
                 
                 break;
             case 3:
-                arrayOfItems[0] = f.getroomItem(2,2);
+                arrayOfItems[0] = f->getroomItem(2,2);
                 
                 break;
         }    
@@ -109,33 +111,33 @@
 
     string Character::setArrayOfItems00()
     {
-        Forest f;
-        arrayOfItems[0] = f.getroomItem(1,0);
+        Forest *f;
+        arrayOfItems[0] = f->getroomItem(1,0);
         return arrayOfItems[0];
     }
 
     string Character::setArrayOfItems1()
     {
-        Forest f;
-        arrayOfItems[1] = f.getroomItem(3,0);
+        Forest *f;
+        arrayOfItems[1] = f->getroomItem(3,0);
         return arrayOfItems[1]; 
     }
 
     string Character::setArrayOfItems2()
     {
-        Forest f;
+        Forest *f;
         int num = (rand()%3)+1;
         
         switch(num){
 
             case 1:
-                arrayOfItems[2] = f.getroomItem(4,0);
+                arrayOfItems[2] = f->getroomItem(4,0);
                 break;
             case 2:
-                arrayOfItems[2] = f.getroomItem(4,1);
+                arrayOfItems[2] = f->getroomItem(4,1);
                 break;
             case 3:
-                arrayOfItems[2] = f.getroomItem(4,2); 
+                arrayOfItems[2] = f->getroomItem(4,2); 
                 break;
         }   
         return arrayOfItems[2];
@@ -143,8 +145,8 @@
 
     string Character::setArrayOfItems22()
     {
-        Forest f;
-        arrayOfItems[2] = f.getroomItem(5,0); 
+        Forest *f;
+        arrayOfItems[2] = f->getroomItem(5,0); 
         return arrayOfItems[2];
     }
 

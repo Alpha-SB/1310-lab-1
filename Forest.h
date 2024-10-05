@@ -23,7 +23,7 @@ class Forest
         string getroomItem(int,int);
         int handleStartLine();
         int handleRoom3();
-        int rungame(int,Character *);//runs the game and directs where the player goes. 
+        int rungame(int,Character **);//runs the game and directs where the player goes. 
     
 };
 

@@ -1,5 +1,6 @@
+#include "Character.h"
 #include "Forest.h"
-
+#include "Interactions.h"
 Forest::Forest()
 {
     int i;
@@ -67,29 +68,29 @@ int Forest::handleRoom3()
 }
 
 
-int Forest::rungame(int startingPoint, Character *Unit)
+int Forest::rungame(int startingPoint, Character **Unit)
 {   bool Fightoutcome = false;
     int roomchoice;
     int Enemy1 = 1 , Enemy2 = 2, Enemy3 = 3,Boss = 4;
     string itemName[3];
-    Character c;
-    Forest f;
-    Interactions i;
+    Character *c;
+    
+    Interactions *i;
 
     switch (startingPoint)
     {
         case 1: 
-            cin.ignore();
-            roomchoice = f.handleStartLine();            
             
+            roomchoice = handleStartLine();            
+            cout << roomchoice;
             break;
         case 2: 
-            Fightoutcome = i.fight(Unit,Enemy1);
+            Fightoutcome = i->fight(*Unit,Enemy1);
             if (Fightoutcome = true)
             {
-                itemName[0] = c.setArrayOfItems00();
+                itemName[0] = c->setArrayOfItems00();
                 cout << "Your enemy drops the " << itemName[0];
-                c.setAttackStat(c.getAttackStat()+30);
+                c->setAttackStat(c->getAttackStat()+30);
                 cout << "\n you are given a 30 point attact stat boost!\n";
                 roomchoice = 4;
             }
@@ -100,31 +101,31 @@ int Forest::rungame(int startingPoint, Character *Unit)
             
             break;
         case 3: 
-            itemName[0] = c.setArrayOfItems0();
+            itemName[0] = c->setArrayOfItems0();
             cout << "You enter a room with nothing but a chest\n\nYou open the chest to find The " << itemName[0];
             if (itemName[0]==roomItems[2][0]){
-                c.setAttackStat(c.getAttackStat()+10);
+                c->setAttackStat(c->getAttackStat()+10);
                 cout << "\n you are given a 10 point attact stat boost!\n";
             }
             else if (itemName[0]==roomItems[2][1]){
-                c.setAttackStat(c.getAttackStat()+20);
+                c->setAttackStat(c->getAttackStat()+20);
                 cout << "\n you are given a 20 point attact stat boost!\n";
             }
             else {
-                c.setAttackStat(c.getAttackStat()+30);
+                c->setAttackStat(c->getAttackStat()+30);
                 cout << "\n you are given a 30 point attact stat boost!\n";
             }
             roomchoice = 5;
             break;
-        case 4: 
-            Fightoutcome = i.fight(Unit,Enemy2);
+       /* case 4: 
+            Fightoutcome = i->fight(*Unit,Enemy2);
             if (Fightoutcome = true)
             {
                 itemName[1] = c.setArrayOfItems1();
                 cout << "Your enemy drops the " << itemName[1];
                 c.setHealthPoints(c.getHealthPoints()+100);
                 cout << "\n you recover 100 HP with the lords chiken!\n";
-                roomchoice = f.handleRoom3();
+                roomchoice = handleRoom3();
             }
             if (Fightoutcome = false)
             {
@@ -150,7 +151,7 @@ int Forest::rungame(int startingPoint, Character *Unit)
             roomchoice = 7;
             break;
         case 6: 
-            Fightoutcome = i.fight(Unit,Enemy3);
+            Fightoutcome = i->fight(*Unit,Enemy3);
             if (Fightoutcome = true)
             {
             itemName[2] = c.setArrayOfItems22();
@@ -167,7 +168,7 @@ int Forest::rungame(int startingPoint, Character *Unit)
        
             break;
         case 7: 
-            Fightoutcome = i.fight(Unit,Boss);
+            Fightoutcome = i->fight(*Unit,Boss);
             if (Fightoutcome = true)
             {
                 roomchoice = 8;
@@ -177,7 +178,7 @@ int Forest::rungame(int startingPoint, Character *Unit)
                 roomchoice = 0;
             }
 
-            break;
+            break;*/
     }
 
     return roomchoice;
